@@ -16,9 +16,9 @@ Preview the main points that will be covered in the article and in the series as
 
 As more and more organizations embrace digital transformation and seek to modernize their IT infrastructure, migrating to the cloud has become an increasingly popular option. Amazon Web Services (AWS), one of the largest and most popular cloud platforms, has emerged as a leading choice for many organizations seeking to leverage the benefits of the cloud.
 
-Like other organizations, we are also in the process of transitioning our operations to the cloud platform. To assist us in this effort, as well as anyone else who is embarking on a similar journey, we will be publishing a series of blog posts called **Cloud Chronicles: Tips for AWS Migration and Best Practices**.
+Like other organizations, we are also in the process of transitioning our operations to the cloud platform. To assist us in this effort, as well as anyone else who is embarking on a similar journey, I will be publishing a series of blog posts called **Cloud Chronicles: Tips for AWS Migration and Best Practices**.
 
-These posts will contain valuable information on the most effective practices for configuring, securing, and monitoring the cloud platform. we will be gathering in these articles all valuable information we can find about the cloud platform and how to make it work for you.
+These posts will contain valuable information on the most effective practices for configuring, securing, and monitoring the cloud platform. I will be gathering in these articles all valuable information I can find about the cloud platform and how to make it work for you.
 
 Embarking on a cloud migration can be daunting, but fear not! In this **Cloud Chronicles** series, We'll provide you with the expert guidance you need to ensure a smooth and successful transition to the cloud. Drawing on our learning path as well as insights from industry experts, we'll share best practices and insider tips to help you navigate the complexities of AWS deployment.
 
@@ -28,7 +28,7 @@ In this introductory article, we'll kick things off by offering practical advice
 
 This document is a work in progress that will be continually updated as we learn. To strike a balance between editability, traceability, and readability, I've decided to keep it as a repository on GitHub. This approach not only allows us to include ready-to-use code snippets but also facilitates version control. To create and manage the repository, we're using [Visual Studio Code](https://code.visualstudio.com/), along with plugins such as [Mermaid](https://mermaid.js.org/) for charts and [Draw.io](https://app.diagrams.net/) for diagrams.
 
-While the articles in this series will be published on various portals, we'll start with [Medium.com](https://medium.com/) and [GitHub](https://github.com/wdoganowski/cloud-chronicles). However, we may expand to other platforms in the future.
+While the articles in this series will be published on various portals, we'll start with [Medium.com](https://medium.com/) and [GitHub](https://github.com/wdoganowski/cloud-chronicles). However, I may expand to other platforms in the future.
 
 The most up-to-date version of this document will always be available on GitHub, so be sure to watch the repository here:
 
@@ -45,7 +45,7 @@ Before diving into the specifics of AWS migration, it's important to understand 
 
 As a growing business, we know that expanding our data center is essential. However, with the current challenges around silicon availability, turning to cloud-based solutions makes more sense than ever. Plus, given how our traffic varies significantly throughout the day and across seasons, we require a scalable (with auto-scaling) solution that can keep up with demand. Thankfully, AWS offers capabilities that allow us to monitor the performance of underlying hardware and understand utilization, bottlenecks, and usage patterns. These factors are critical to our success in the cloud.
 
-Please allow us not to disclose the exact plans, which we have, and be a bit abstract here. It may come out later.
+Please allow me not to disclose the exact plans, which we have, and be a bit abstract here. It may come out later.
 
 ## Getting Started with AWS
 

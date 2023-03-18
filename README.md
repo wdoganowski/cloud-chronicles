@@ -18,7 +18,7 @@ Preview the main points that will be covered in the article and in the series as
 
 As more and more organizations embrace digital transformation and seek to modernize their IT infrastructure, migrating to the cloud has become an increasingly popular option. Amazon Web Services (AWS), one of the largest and most popular cloud platforms, has emerged as a leading choice for many organizations seeking to leverage the benefits of the cloud.
 
-Like other organizations, we are also in the process of transitioning our operations to the cloud platform. To assist us in this effort, as well as anyone else who is embarking on a similar journey, I will be publishing a series of blog posts called **Cloud Chronicles: Tips for AWS Migration and Best Practices**.
+Like other organizations, TV3, the biggest media house in Baltics, is also in the process of transitioning its [Go3](https://go3.tv) OTT TV service operations to the cloud platform. I'm proud to be responsible for the solution architecture of this service. To assist us in this migration effort, as well as anyone else who is embarking on a similar journey, I will be publishing a series of blog posts called **Cloud Chronicles**.
 
 These posts will contain valuable information on the most effective practices for configuring, securing, and monitoring the cloud platform. I will be gathering in these articles all valuable information I can find about the cloud platform and how to make it work for you.
 
@@ -30,11 +30,11 @@ In this introductory article, we'll kick things off by offering practical advice
 
 This document is a work in progress that will be continually updated as we learn. To strike a balance between editability, traceability, and readability, I've decided to keep it as a repository on GitHub. This approach not only allows us to include ready-to-use code snippets but also facilitates version control. To create and manage the repository, we're using [Visual Studio Code](https://code.visualstudio.com/), along with plugins such as [Mermaid](https://mermaid.js.org/) for charts and [Draw.io](https://app.diagrams.net/) for diagrams.
 
-While the articles in this series will be published on various portals, we'll start with [Medium.com](https://medium.com/) and [GitHub](https://github.com/wdoganowski/cloud-chronicles). However, I may expand to other platforms in the future.
+While the articles in this series will be published on various portals, we'll start with [Medium.com](https://medium.com/@dogan1971/cloud-chronicles-d160b926d48) and [GitHub.io](https://wdoganowski.github.io/cloud-chronicles/). However, I may expand to other platforms in the future.
 
 The most up-to-date version of this document will always be available on GitHub, so be sure to watch the repository here:
 
-> <https://github.com/wdoganowski/cloud-chronicles>
+> [https://github.com/wdoganowski/cloud-chronicles](https://github.com/wdoganowski/cloud-chronicles)
 
 Let's go back to our story.
 
@@ -45,9 +45,9 @@ Discuss how cloud migration fits into the larger context of digital transformati
 
 Before diving into the specifics of AWS migration, it's important to understand why businesses are making the switch to the cloud. First and foremost, the cloud offers scalability and flexibility, allowing businesses to easily adjust their resources to meet changing demands. Additionally, cloud services can often be more cost-effective than on-premises solutions, as they eliminate the need for expensive hardware and maintenance. Finally, the cloud enables businesses to be more agile and responsive to changes in the marketplace, which is critical in today's fast-paced business environment.
 
-As a growing business, we know that expanding our data center is essential. However, with the current challenges around silicon availability, turning to cloud-based solutions makes more sense than ever. Plus, given how our traffic varies significantly throughout the day and across seasons, we require a scalable (with auto-scaling) solution that can keep up with demand. Thankfully, AWS offers capabilities that allow us to monitor the performance of underlying hardware and understand utilization, bottlenecks, and usage patterns. These factors are critical to our success in the cloud.
+As a growing business, we know that expanding our data center is essential. However, with the current challenges around silicon availability, turning to cloud-based solutions makes more sense than ever. Plus, given how our traffic varies significantly throughout the day and across seasons, we require an auto-scalable solution that can keep up with demand. Thankfully, AWS offers capabilities that allow us to monitor the performance of underlying hardware and understand utilization, bottlenecks, and usage patterns. These factors are critical to our success in the cloud.
 
-Please allow me not to disclose the exact plans, which we have, and be a bit abstract here. It may come out later.
+The cloud offers unparalleled benefits in terms of solution reliability, availability, and stability. Cloud-native services are engineered to be highly available and distributed across multiple data centers to minimize the impact of power outages and local connectivity issues. This design ensures that your solution is always up and running, providing your users with the seamless experience they expect.
 
 ## Getting Started with AWS
 
@@ -61,9 +61,10 @@ AWS is offering various training paths including a [Skills builder platform](htt
 
 Looking outside of the AWS offer, there are various YouTube channels, where you can learn a lot. Just to name a few, here are some valuable examples:
 
-- [Digital Cloud Training](https://www.youtube.com/@DigitalCloudTraining)
+- [Serverless Land](https://www.youtube.com/@ServerlessLand)
 - [freeCodeCamp.org](https://www.youtube.com/@freecodecamp)
 - [Tech With Lucy](https://www.youtube.com/@TechwithLucy)
+- [Amazon Web Services](https://www.youtube.com/@AmazonWebServices)
 
 If you decide to invest a bit in your learning, you can find also a lot of courses on [Udemy](https://www.udemy.com/) or sign up for a paid course like [Cloud Mastery Bootcamp](https://digitalcloud.training/cloud-mastery-bootcamp). Myself, I decided to join that one. It is very intensive, but I have huge hopes to refresh my overall knowledge and put it in the cloud perspective.
 

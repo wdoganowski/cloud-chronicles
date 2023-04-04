@@ -17,11 +17,9 @@ After analyzing the portfolio of the on-prem service, a migration plan can be cr
 
 ## How to determine what is there to migrate?
 
-To help with this assessment and planning, AWS offers several services that are designed to simplify and streamline the migration process. But before we go there, let's talk about the concepts of the seven Rs as the strategies for migration: *retire*, *retain*, *relocate*, *rehost*, *repurchase*, *re-platform*, and *refactor*.
+To help with this assessment and planning, AWS offers several services that are designed to simplify and streamline the migration process. But before we go there, let's talk about the concepts of the seven Rs as the strategies for migration: *refactor*, *re-platform*, *repurchase*, *rehost*, *relocate*, *retain*, and *retire*.
 
 Here are those approaches explained in detail.
-
-*Retire* – Decommission or remove applications that are no longer needed in your source environment.
 
 *Refactor* (re-architect) – Move an application and modify its architecture by taking full advantage of cloud-native features to improve agility, performance, and scalability. This typically involves porting the operating system and database. Example: Migrate your on-premises Oracle database to the Amazon Aurora PostgreSQL-Compatible Edition.
 
@@ -34,6 +32,8 @@ Here are those approaches explained in detail.
 *Relocate* (hypervisor-level lift and shift) – Move infrastructure to the cloud without purchasing new hardware, rewriting applications, or modifying your existing operations. This migration scenario is specific to VMware Cloud on AWS, which supports virtual machine (VM) compatibility and workload portability between your on-premises environment and AWS. You can use the VMware Cloud Foundation technologies from your on-premises data centers when you migrate your infrastructure to VMware Cloud on AWS. Example: Relocate the hypervisor hosting your Oracle database to VMware Cloud on AWS.
 
 *Retain* (revisit) – Keep applications in your source environment. These might include applications that require major refactoring, and you want to postpone that work until a later time, and legacy applications that you want to retain because there’s no business justification for migrating them.
+
+*Retire* – Decommission or remove applications that are no longer needed in your source environment.
 
 While all of the 7 Rs can be useful in specific situations, *rehosting*, *re-platforming*, and *refactoring* are generally the most valuable strategies for cloud migration. *Rehosting* can provide immediate cost savings and speed up the migration process, while *re-platforming* can improve application performance and scalability. *Refactoring* can create the most value in the long run, as it involves redesigning the application to fully leverage the benefits of the cloud.
 
@@ -51,17 +51,15 @@ I wonder, which do you use?
 
 ![AWS Migration Evaluator](./images/migration_evaluator.png)
 
-The AWS Migration Evaluator is a powerful tool designed to help businesses assess their application portfolios to develop an efficient and effective migration strategy. The tool uses a data-driven approach, which helps you evaluate their current infrastructure and determine the best approach for migrating their applications to the cloud.
+The [AWS Migration Evaluator](https://aws.amazon.com/migration-evaluator/)is a powerful tool designed to help businesses assess their application portfolios to develop an efficient and effective migration strategy. The tool uses a data-driven approach, which helps you evaluate their current infrastructure and determine the best approach for migrating their applications to the cloud.
 
-The [AWS Migration Evaluator](https://aws.amazon.com/migration-evaluator/) has several approaches that can be used to assess application portfolios. One such approach is the Application Dependency Mapping approach, which provides a visual representation of all the applications that are currently running on-premises. This approach allows companies to understand the dependencies between different applications, which helps them make informed decisions about how to move these applications to the cloud.
-
-Another approach is the Application Readiness Assessment, which would help you determine which applications are ready to be migrated to the cloud. This approach provides businesses with a detailed analysis of each application's technical requirements, including any potential compatibility issues that may arise during the migration process. This approach also provides recommendations for addressing any issues that are identified.
+It can be used to assess the organization's current infrastructure, including the applications, data, and network. The AWS Migration Evaluator also provides recommendations for cost optimization and performance improvement during the migration process.
 
 By leveraging this tool, you can apply the 7 Rs of migration to your cloud migration project more effectively.
 
 The first step is to upload your application inventory to Migration Evaluator, which can be done using either AWS Application Discovery Service or an Excel template provided by the tool. Once the data is uploaded, Migration Evaluator analyzes the applications and provides recommendations on which applications are best suited for each migration strategy.
 
-For example, the *retiring* strategy may be recommended for applications that are no longer used or have been replaced by newer versions. The *Retain* strategy may be recommended for applications that cannot be moved to the cloud due to technical or regulatory reasons. The *Rehost* strategy may be recommended for applications that can be easily moved to the cloud with minimal changes.
+The tool may determine whether a workload is suitable for *rehosting*, *re-platforming*, or *refactoring*. If an application is simple and does not have complex dependencies, *rehosting* may be the best approach. If an application requires optimization for cloud-native features, *re-platforming* may be the recommended strategy. On the other hand, if an application requires significant modification to fully leverage the benefits of cloud computing, *refactoring* may be the most suitable option.
 
 Migration Evaluator can also provide cost estimates for each migration strategy, which helps in making informed decisions about which strategy to use for each application. By using this tool to apply the 7 Rs of migration, you can create a migration strategy that maximizes value and minimizes risk for your organization.
 
@@ -91,7 +89,7 @@ Finally, the *refactoring* approach involves rewriting an application's code to 
 
 ![AWS Service Catalog](./images/service_catalog.png)
 
-Finally, the [AWS Service Catalog](https://aws.amazon.com/servicecatalog/) provides a centralized location for managing and deploying AWS services, making it easier to manage your migration process. When it comes to cloud migration, AWS Service Catalog can also play a crucial role in implementing the 7 Rs strategies.
+The [AWS Service Catalog](https://aws.amazon.com/servicecatalog/) provides a centralized location for managing and deploying AWS services, making it easier to manage your migration process. When it comes to cloud migration, AWS Service Catalog can also play a crucial role in implementing the 7 Rs strategies.
 
 For example, when planning a migration to the cloud, you can use AWS Service Catalog to create a catalog of approved IT services that meet your organization's specific needs. The catalog can include pre-approved services for each of the 7 Rs strategies, such as *rehosting*, *re-platforming*, or *refactoring*. This helps ensure that your teams have access to the right IT services to support their migration efforts.
 

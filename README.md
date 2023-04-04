@@ -21,6 +21,10 @@ Embarking on a cloud migration can be daunting, but fear not! In this **Cloud Ch
 
 In this introductory article, we'll kick things off by offering practical advice for AWS migration and highlighting key best practices for cloud deployment.
 
+## Other articles in the series
+
+[7 Rs of Migration](./01.%207%20Rs%20of%20Migration/README.md)
+
 ## Before we start
 
 This document is a work in progress that will be continually updated as we learn. To strike a balance between editability, traceability, and readability, I've decided to keep it as a repository on GitHub. This approach not only allows us to include ready-to-use code snippets but also facilitates version control. To create and manage the repository, we're using [Visual Studio Code](https://code.visualstudio.com/), along with plugins such as [Mermaid](https://mermaid.js.org/) for charts and [Draw.io](https://app.diagrams.net/) for diagrams.

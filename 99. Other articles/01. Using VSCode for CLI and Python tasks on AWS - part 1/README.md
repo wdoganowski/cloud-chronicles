@@ -1,4 +1,4 @@
-# Using VSCode for CLI and Python tasks on AWS
+# Using VSCode for CLI and Python tasks on AWS - part 1
 
 ![VSCode example](images/vscode.png)
 
@@ -18,15 +18,17 @@ I like it, but I like the Visual Studio Code (a.k.a. VSCode) more. Especially si
 
 If you are not sure about the above tools, I will provide some explanations and use cases together with the installation steps below.
 
-As I'm working on my MacBook, so I needed ChatGPT to help me with the information what are the equivalent steps for Ubuntu Linux and Windows. I hope they are not wrong, as I don't have a real way to check them, although I have verified them online, as much as I could. Let me know.
+As I'm working on my MacBook, I needed ChatGPT to help me with the information what are the equivalent steps for Ubuntu Linux and Windows. I hope they are not wrong, although I have verified them online, as much as I could, I might be wrong in some steps. Let me know.
 
-Here are the steps to set up Python3 and VSCode on MacBook, Ubuntu Linux, and Windows PC, and configure it to allow access to AWS resources from the CLI in the VSCode terminal and Python scripts:
+Here are the instructions to set up Python3 and VSCode on MacBook, Ubuntu Linux, and Windows PC, and configure it to allow access to AWS resources from the CLI in the VSCode terminal and Python scripts:
 
 ## Python3
 
 Python is a popular language for developing applications and scripts for use on the AWS platform. There are several ways in which Python can be used with AWS, including:
 
 Writing AWS Lambda functions: AWS Lambda is a serverless computing service that allows you to run code without provisioning or managing servers. Python is a popular language for developing Lambda functions, which can be triggered by events in other AWS services, such as S3, DynamoDB, and Kinesis.
+
+![Lambda example](images/lambda.png)
 
 Developing AWS applications: Python can be used to develop applications that interact with AWS services, such as the AWS SDK for Python (boto3). This allows you to create custom solutions for your specific needs, whether you're building a web application, data pipeline, or machine learning model.
 
@@ -36,11 +38,18 @@ Integrating with AWS services: Python can be integrated with other AWS services,
 
 ### Install Python3 on macOS
 
-Python 3.x is now pre-installed on macOS. You can verify the installation by opening Terminal and running the command:
+Macbooks are shipped with pre-installed Python 2.x while we need version 3.x to work with AWS. Currently, AWS supports Python 3.7-3.9 and we will install version 3.9 as the most current from those supported by AWS. You can verify what version you have installed by opening Terminal and running the command:
+
+```sh
+$ python --version
+Python 3.9.16
+```
+
+If you see this, you are lucky, but if you did not update your Python version you probably will see:
 
 ```sh
 $ python3 --version
-Python 3.11.2
+sh: python3: command not found
 ```
 
 In case the version is not 3.x, you need to install Python 3. I'm not going to repeat the steps, which are greatly presented here: https://docs.python-guide.org/starting/install3/osx/.
@@ -62,6 +71,8 @@ Download the latest Python3 installer from the official website: https://www.pyt
 
 Visual Studio Code (VSCode) is a free and open-source code editor developed by Microsoft. It is available on multiple platforms, including Windows, macOS, and Linux, and is designed to be lightweight and customizable. VSCode has several features that make it popular among developers, including support for syntax highlighting, code completion, debugging, Git integration, and a wide range of extensions that can be used to customize and extend its functionality.
 
+![VSCode example from https://code.visualstudio.com/docs/languages/javascript](images/vscode_overview.png)
+
 It is also highly configurable, with a wide range of settings that can be adjusted to suit individual preferences and workflows. VSCode can be a very useful tool for AWS developers in the following ways:
 
 AWS extensions: There are many extensions available for VSCode that are specifically designed to work with AWS services. For example, the AWS Toolkit for VSCode provides an integrated development environment (IDE) experience for developing serverless applications on AWS, including support for AWS Lambda, AWS SAM, and AWS CloudFormation.
@@ -80,124 +91,28 @@ Download the appropriate installer for your OS from the official website: https:
 
 Finally, launch VSCode.
 
-Open the terminal (Command Prompt on Windows) in VSCode. Now we are already aligned between the system and we have the same terminal running on each, although still there will be differences between available commands, which depend on the shell, which is available on your machine. The good thing is that the AWS CLI will be common between our three platforms.
+Open the terminal (Command Prompt on Windows) in VSCode by selecting _Terminal_ -> _New Terminal_ from the menu.
 
-## AWS CLI
+![Open terminal](images/open_terminal.png)
 
-The AWS CLI (Command Line Interface) is a powerful tool for managing your AWS resources and services through a command-line interface. It allows you to interact with AWS resources using commands in your terminal (or Command Prompt on Windows) rather than using the AWS Management Console or SDK.
+Now we are already aligned between the system and we have the same terminal running on each, although still there will be differences between available commands, which depend on the shell, which is available on your machine. The good thing is that the AWS CLI will be common between our three platforms.
 
-The AWS CLI can be useful in a variety of scenarios, including:
+You should see the terminal window and the prompt at the bottom of the VSCode window.
 
-Automating repetitive tasks: If you have to perform the same AWS-related tasks regularly, you can use the AWS CLI to automate these tasks by writing scripts that perform the required actions.
+![Example of terminal window](images/terminal.png)
 
-Developing and testing applications: Developers can use the AWS CLI to test and deploy their applications using scripts or automation tools. This can help streamline the development and deployment process.
-
-Managing AWS resources in a serverless environment: The AWS CLI is especially useful for managing AWS resources in a serverless environment, where you might be creating and deploying Lambda functions, API Gateway, S3 buckets, and other serverless components using the AWS CLI.
-
-Managing AWS resources across multiple accounts and regions: With the AWS CLI, you can manage AWS resources across multiple accounts and regions using a single tool, making it easy to automate and manage complex AWS environments.
-
-Integrating with other tools and services: The AWS CLI can be integrated with other tools and services, such as Jenkins, Git, and Docker, to automate the deployment and management of AWS resources in these environments.
-
-Overall, the AWS CLI is a versatile and powerful tool that can help automate and streamline your management of AWS resources, whether you're a developer, DevOps engineer, or system administrator.
-
-### Install AWS CLI on macOS
-
-If you have _sudo_ permissions, you can install the AWS CLI for all users on the computer:
+Let's test it. Run _python3_ in the terminal window, you should see the following:
 
 ```sh
-curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
-sudo installer -pkg AWSCLIV2.pkg -target /
+$ python3
+Python 3.9.16 (main, Dec  7 2022, 10:16:11) 
+[Clang 14.0.0 (clang-1400.0.29.202)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
 ```
 
-In case you are not able to do this, you can follow the instructions from AWS: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html.
+You can exit by typing _quit()_. Now let's install AWS tools.
 
-### Install AWS CLI on Ubuntu
+---
 
-Run:
-
-```sh
-sudo apt install awscli
-```
-
-### Install AWS CLI on Windows
-
-Download the MSI installer from the official website: https://aws.amazon.com/cli/ and run the installer. Make sure to select "Add Python to environment variables" during the installation process.
-
-## Configure AWS access
-
-Run:
-
-```sh
-aws configure
-```
-
-Enter your AWS access key ID, secret access key, default region name, and output format
-
-## AWS SDK for Python (Boto3)
-
-### Install Boto3 on macOS and Ubuntu
-
-In the VSCode terminal window run:
-
-```sh
-sudo apt install python3-pip
-pip3 install boto3
-```
-
-### Install Boto3 on Windows
-
-In the VSCode terminal window run:
-
-```sh
-pip3 install boto3
-```
-
-## VSCode extensions
-
-### Install Python extension
-
-Click on the "Extensions" icon on the left-hand side panel
-Search for "Python" in the search bar and click "Install"
-Create a new Python file and add code to access AWS resources:
-
-### PEP8
-
-### ChatGPT
-
-## Python use case
-
-Open VSCode
-Create a new Python file by clicking on "File" > "New File"
-Save the file with a .py extension
-Add your Python code to access AWS resources. Here is a sample code snippet to get you started:
-python
-Copy code
-import boto3
-
-# Create an S3 client
-s3 = boto3.client('s3')
-
-# List all S3 buckets in your account
-response = s3.list_buckets()
-
-# Print the bucket names
-for bucket in response['Buckets']:
-    print(bucket['Name'])
-That's it! You should now be able to run Python scripts that access AWS resources from the CLI in VSCode terminal and Python scripts on all three OS.
-
-## CLI
-
-once you have installed the AWS CLI and configured your credentials using the aws configure command, you will have access to the AWS CLI from your terminal (or Command Prompt on Windows).
-
-You can open the terminal (or Command Prompt) in VSCode by pressing Ctrl+Shift+ (backtick) or by clicking on "Terminal" > "New Terminal" in the VSCode menu.
-
-From there, you can use any AWS CLI command just like you would in a regular terminal outside of VSCode. For example, to list all your S3 buckets, you can run the following command in the terminal:
-
-bash
-Copy code
-aws s3 ls
-Similarly, you can run any AWS CLI command in the terminal, whether it's for S3, EC2, or any other AWS service.
-
-## Extra tool
-
-Assume role
+By now we have installed the Python interpreter and the Visual Studio Code IDE. Let's continue in the second part of this article [Using VSCode for CLI and Python tasks on AWS - part 2](../02.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%202/README.md), where we will cover AWS CLI and Boto3 library installation.

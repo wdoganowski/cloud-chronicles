@@ -1,78 +1,79 @@
-# Using VSCode for CLI and Python tasks on AWS
+# Using Visual Studio Code for CLI and Python tasks on AWS - part 3 - Boto3
 
-![VSCode example](images/vscode.png)
+![Visual Studio Code example](images/vscode.png)
 
+In the first part of this article [Using Visual Studio Code for CLI and Python tasks on AWS - part 1](../01.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%201/README.md) I have covered the installation of Python3 and Visual Studio Code. In the second part [Using Visual Studio Code for CLI and Python tasks on AWS - part 2](../02.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%202/README.md) I have covered the installation and configuration of AWS CLI. Now let's install the Boto3 library, so we will be able to connect to AWS resources from Python code.
 
+## AWS SDK for Python (Boto3)
 
+Boto3 is the AWS Software Development Kit (SDK) for Python, which allows developers to write Python scripts to interact with AWS services programmatically. Here are some of the main use cases for Boto3:
 
-## VSCode extensions
+Automating AWS infrastructure: Boto3 can be used to automate the creation, modification, and deletion of AWS resources, such as EC2 instances, S3 buckets, and RDS databases. This can save time and reduce errors that can occur when creating and managing resources manually.
 
-The VSCode extensions provide a powerful way to customize and enhance VS Code for specific programming languages, workflows, and development environments.
+Data processing and analysis: Boto3 can be used to retrieve data from AWS services, such as S3, DynamoDB, and Kinesis, and process it using Python libraries and tools, such as NumPy and Pandas. This can be useful for performing data analysis, machine learning, and other tasks that require processing large amounts of data.
 
-I suggest to install the [Python Extension Pack](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python-extension-pack), which is a collection of extensions for Visual Studio Code that are focused on Python development. The extension pack includes several popular extensions for Python developers, such as:
+DevOps automation: Boto3 can be used to automate tasks related to DevOps, such as deploying code to AWS services using tools like CodeDeploy and CodePipeline. This can streamline the deployment process and reduce the time and effort required to deploy code to AWS.
 
-1. Python - Linting, Debugging (multi-threaded, remote), Intellisense, code formatting, refactoring, unit tests, snippets, Data Science (with Jupyter), PySpark and more.
-1. Jinja - Jinja template language support for Visual Studio Code.
-1. Django - Beautiful syntax and scoped snippets for perfectionists with deadlines.
-1. Visual Studio IntelliCode - Provides AI-assisted productivity features for Python developers in Visual Studio Code with insights based on understanding your code combined with machine learning..
-1. Python Environment Manager - Provides the ability to view and manage all of your Python environments & packages from a single place.
-1. Python Docstring Generator - Quickly insert Python comment blocks with contextually inferred parameters for classes and methods based on multiple, selectable template patterns.
-1. Python Indent - Correct Python indentation in Visual Studio Code.
-1. Jupyter - Provides Jupyter notebook support for Python language, used for data science, scientific computing, and machine learning.
+Cloud management and monitoring: Boto3 can be used to manage and monitor AWS services, such as CloudWatch, CloudFormation, and AWS Config. This can help ensure that AWS resources are running smoothly and within expected parameters and can help identify issues before they become critical.
 
-As you can see the Python Extension Pack provides a convenient way for Python developers to quickly set up a productive development environment in Visual Studio Code
+### Install Boto3 on macOS
 
-### Install Python extension
+On macOS, if you followed the Python installation steps from the link provided above, you will have already installed the _pip3_ package manager, so we just need to run the following command:
 
-To install the Python Extension Pack in Visual Studio Code, you can follow these steps:
+```sh
+pip3 install boto3
+```
 
-1. In Visual Studio Code click on the "Extensions" icon on the left-hand side of the window, or press Ctrl+Shift+X (Windows/Linux) or Cmd+Shift+X (macOS) to open the Extensions view.
-1. In the search bar, type "Python Extension Pack" and press Enter.
-1. The extension pack should appear in the search results. Click on the "Install" button to install it.
-1. After installation, you may be prompted to reload VS Code for the changes to take effect. If so, click on the "Reload" button.
+It will install the Boto3 library.
 
-![Python extension pack](images/python_extension.png)
+### Install Boto3 on Ubuntu
 
-That's it! The Python Extension Pack is now installed and ready to use in Visual Studio Code. You can start using the Python-specific features and functionality provided by the extensions included in the pack.
+To install Boto3 on Linux, we need to install the _pip3_ explicitly unless you have installed it already before. In the VSCode terminal window run:
 
-### PEP8
+```sh
+sudo apt-get install python3-pip
+pip3 install boto3
+```
 
-### ChatGPT
+Above code will install the _pip3_ package manager and then the Boto3 library.
 
-## Python use case
+### Install Boto3 on Windows
 
-Open VSCode
-Create a new Python file by clicking on "File" > "New File"
-Save the file with a .py extension
-Add your Python code to access AWS resources. Here is a sample code snippet to get you started:
-python
-Copy code
+In the case of Windows, the process is similar to macOS and the _pip3_ package manager should come together with Python installation. Just run:
+
+```sh
+pip3 install boto3
+```
+
+OK, we have the CLI and Boto3 installed, we just need to test Boto3 in a real application. Create a new Python file named _boto_test.py_ by selecting from _File_ menu _New File..._ and copy the following code to the window on the right side:
+
+```python
 import boto3
 
-# Create an S3 client
+# Retrieve the list of existing buckets
 s3 = boto3.client('s3')
-
-# List all S3 buckets in your account
 response = s3.list_buckets()
 
-# Print the bucket names
+# Output the bucket names
+print('Existing buckets:')
 for bucket in response['Buckets']:
-    print(bucket['Name'])
-That's it! You should now be able to run Python scripts that access AWS resources from the CLI in VSCode terminal and Python scripts on all three OS.
+    print(f'  {bucket[_Name_]}')
+```
 
-## CLI
+You should be asked to install the Python extension of Visual Studio Code. This is a good moment to do it, as we will need it to be able to run the Python code within the Visual Studio Code IDE. Just press install and after the installation is finished, close the _Extension: Python_ file, which will open.
 
-once you have installed the AWS CLI and configured your credentials using the aws configure command, you will have access to the AWS CLI from your terminal (or Command Prompt on Windows).
+![Python extension prompt](images/python_extension.png)
 
-You can open the terminal (or Command Prompt) in VSCode by pressing Ctrl+Shift+ (backtick) or by clicking on "Terminal" > "New Terminal" in the VSCode menu.
+Then save the file by selecting _Save_ from the _File_ menu and we are ready to run it by selecting _Run Without Debugging_ from _Run_ menu. You should see something similar to this:
 
-From there, you can use any AWS CLI command just like you would in a regular terminal outside of VSCode. For example, to list all your S3 buckets, you can run the following command in the terminal:
+![Example of Boto3 Python code](images/s3_example.png)
 
-bash
-Copy code
-aws s3 ls
-Similarly, you can run any AWS CLI command in the terminal, whether it's for S3, EC2, or any other AWS service.
+Remember to log in to AWS SSO, otherwise, you will receive the following error:
 
-## Extra tool
+```sh
+botocore.exceptions.SSOTokenLoadError: Error loading SSO Token: Token for my-sso does not exist
+```
 
-Assume role
+---
+
+Up to now, we have the Python and Visual Studio Code installed together with two methods to access the AWS resources: AWS CLI and the Boto3 library. In the next part of this article - [Using Visual Studio Code for CLI and Python tasks on AWS - part 4](../04.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%204/README.md) - we will add some fun extensions, which maybe are not crucial, but help in the daily tasks.

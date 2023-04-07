@@ -1,8 +1,8 @@
-# Using VSCode for CLI and Python tasks on AWS
+# Using Visual Studio Code for CLI and Python tasks on AWS - part 2 - AWS CLI
 
-![VSCode example](images/vscode.png)
+![Visual Studio Code example](images/vscode.png)
 
-
+In the first part of this article [Using Visual Studio Code for CLI and Python tasks on AWS - part 1](../01.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%201/README.md) I have covered the installation of Python3 and Visual Studio Code. Now we will focus on the installation of AWS CLI. Thanks to this, we will be able to connect to AWS resources from our local machine.
 
 ## AWS CLI
 
@@ -25,7 +25,7 @@ Integrating with other tools and services: The AWS CLI can be integrated with ot
 If you have _sudo_ permissions, you can install the AWS CLI for all users on the computer:
 
 ```sh
-curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+curl _https://awscli.amazonaws.com/AWSCLIV2.pkg_ -o _AWSCLIV2.pkg_
 sudo installer -pkg AWSCLIV2.pkg -target /
 ```
 
@@ -41,25 +41,165 @@ sudo apt install awscli
 
 ### Install AWS CLI on Windows
 
-Download the MSI installer from the official website: https://aws.amazon.com/cli/ and run the installer. Make sure to select "Add Python to environment variables" during the installation process.
+Download the MSI installer from the official website: https://aws.amazon.com/cli/ and run the installer. Make sure to select _Add Python to environment variables_ during the installation process.
 
 ## Configure AWS access
 
-Before we can use AWS CLI we need to set up the necessary configuration settings to communicate with the AWS services. Specifically, we need to configure the _access key ID_ and _secret access key_ that are used to authenticate requests to AWS services, as well as the default region and output format to be used when interacting with AWS services.
+Before we can use AWS CLI we need to set up the necessary configuration settings to communicate with the AWS services. There are two methods of achieving this. First is to use the _access key ID_ and _secret access key_ however this is not recommended anymore. Instead, we can enable authentication through a user in IAM Identity Center.
 
-Without configuring the AWS CLI, we would not be able to interact with AWS services. The AWS CLI would not have any rights to AWS resources.
+### Configuring AWS access using IAM Identity Center (recommended)
 
-> It's important to note that the access key ID and secret access key are sensitive information that should be kept secure. We should only give access to AWS resources to individuals or applications that require it and remove access when it is no longer needed.
+To configure AWS CLI to authenticate through a user in IAM Identity Center, you need to have to enable access through the IAM Identity Center. You can follow my article [Easier access to multiple accounts with IAM Identity Center](../../02.%20Easier%20access%20to%20your%20accounts%20with%20IAM%20Identity%20Center/README.md).
 
-Following are the steps to get the  _access key ID_ and _secret access key_:
+#### Creating PowerUser
+
+Once you established access through IAM Identity Center, you can follow these steps:
+
+1. Log in to the AWS Management Console using your AWS account credentials. If you have multiple accounts, ensure you are logging into your management account using the root user.
+1. Navigate to the IAM Identity Center by clicking on the _Services_ dropdown in the top left corner, selecting _IAM Identity Center (successor to AWS Single Sign-On)
+_ under _Security, Identity & Compliance_. Alternatively, you can type _IAM Identity Center (successor to AWS Single Sign-On)_ in the services search prompt.
+Create a new permission set that grants PowerUserAccess permissions:
+    1. Click on the _Create new permission set_ button in the upper right-hand corner of the page.
+    1. Select _Predefined permission set_ as the type of permission set.
+    1. Select _PowerUserAccess_ as the predefined permission set to create.
+    1. Enter a name and description for the permission set, if desired.
+    1. Review the details of the permission set, and click the _Create_ button.
+1. Assign the newly created user to the account:
+    1. Click on _AWS accounts_ in the left panel. You should be presented with the list of the accounts. 
+    1. Select the accounts you want to access.
+    1. Press _Assign users and groups_ and select the _Users_ tab.
+    1. Select the desired user and press _Next_.
+    1. Select the PowerUserAccess permission set and press _Next_.
+    1. Review and press _Submit_.
+
+> Unlike the administrative permission set, which uses AdministratorAccess permissions, the PowerUserAccess permission set doesn't allow management of users and groups.
+
+#### Configuring the profile with the AWS configure SSO wizard
+
+Once we have the user with PowerUserAccess permissions created, you can configure the AWS CLI using the following commands:
+
+```sh
+$ aws configure sso 
+SSO session name (Recommended): my-sso
+SSO start URL [None]: https://my-sso-portal.awsapps.com/start
+SSO region [None]: eu-north-1
+SSO registration scopes [None]: sso:account:access
+Attempting to automatically open the SSO authorization page in your default browser.
+If the browser does not open or you wish to use a different device to authorize this request, open the following URL:
+
+https://device.sso.eu-north-1.amazonaws.com/
+
+Then enter the code:
+```
+
+You will see your browser opening and you will need to log in to your PowerUserAccess account. Then you will need to allow CLI (called botocore-client) to access AWS IAM Identity Center accounts and permission sets.
+
+![Allow popup](images/allow.png)
+
+After this, you will be presented with the account, to which you want to log in to your AWS CLI. You need to select one.
+
+```sh
+SQTM-CXXB
+There are 6 AWS accounts available to you.
+> Bootcamp (123456789011)                 
+  Bootcamp-PROD (123456789012)       
+  Backups (123456789013)                   
+  BootcampSandbox (123456789014)   
+  Wojciech Doganowski (123456789015)               
+  Liczyrzepa-PROD (123456789016)   
+```
+
+After selecting the account, you will be prompted to which region you want the CLI to be logged in:
+
+```sh
+Using the account ID 123456789011
+The only role available to you is: PowerUserAccess
+Using the role name "PowerUserAccess"
+CLI default client Region [None]: eu-north-1
+CLI default output format [None]: YAML
+CLI profile name [PowerUserAccess-123456789011]:
+
+To use this profile, specify the profile name using --profile, as shown:
+
+aws s3 ls --profile PowerUserAccess-123456789011
+$
+```
+
+That's it! You have now configured AWS CLI to authenticate through a user in IAM Identity Center using access keys. Let's try to access S3:
+
+```sh
+$ aws s3 ls --profile PowerUserAccess-123456789011
+2023-04-01 19:24:29 python-session-1-dogan
+```
+
+This results in creating the sso-session section and named profile in ~/.aws/config that looks like the following:
+
+```sh
+[profile PowerUserAccess-123456789011]
+sso_session = my-sso
+sso_account_id = 123456789011
+sso_role_name = PowerUserAccess
+region = eu-north-1
+
+[sso-session my-sso]
+sso_start_url = https://my-sso-portal.awsapps.com/start
+sso_region = eu-north-1
+sso_registration_scopes = sso:account:access
+```
+
+#### Logging in with IAM Identity Center
+
+To be able to use the AWS CLI next time, you will need to login to SSO using the following command:
+
+```sh
+aws sso login --profile PowerUserAccess-123456789011
+```
+
+You will be asked to login into the browser window again, the same way as while creating the SSO account.
+
+To avoid adding _--profile PowerUserAccess-123456789011_ to each AWS CLI command, you can set the AWS_PROFILE variable in the following way:
+
+On Linux or Mac:
+
+```sh
+export AWS_PROFILE=PowerUserAccess-123456789011
+```
+
+On Windows:
+
+```sh
+SET AWS_PROFILE=PowerUserAccess-123456789011
+```
+
+Then you can run AWS CLI commands like this:
+
+```sh
+$ aws s3 ls
+2023-04-01 19:24:29 python-session-1-dogan
+```
+
+To logout the AWS CLI session, you need to use:
+
+```sh
+aws sso logout
+```
+
+You have configured the AWS CLI to use the IAM Identity Center as the SSO.
+
+### Configuring AWS access using the access key
+
+> It's important to note that the _access key ID_ and _secret access key_ are sensitive information that should be kept secure. For that reason, we should avoid using them as if someone will get the access to this key pair, would have the same access to your account as you.
+
+Following are the steps to get the _access key ID_ and _secret access key_:
 
 1. Log in to the AWS Management Console using your AWS account credentials.
 1. Open the IAM console.
-1. In the navigation pane, choose "Users".
+1. In the navigation pane, choose _Users_.
 1. Select your IAM user name.
-1. Choose the "Security credentials" tab.
-1. Expand the "Access keys" section.
-1. Choose "Create access key".
+1. Choose the _Security credentials_ tab.
+1. Expand the _Access keys_ section.
+1. Choose the _Create access key_ button.
+1. Select _Command Line Interface (CLI)_.
 1. Download and save the access key file.
 1. Use the access key ID and secret access key from the file to complete the _aws configure_ command.
 
@@ -75,9 +215,11 @@ Default region name []: us-east-1
 Default output format [None]: YAML
 ```
 
-1. Enter your AWS _access key ID_ and _secret access key_: You will need to enter your access key ID and secret access key, which you can obtain from the AWS Management Console.
+1. Enter your AWS _access key ID_ and _secret access key_: you will need to enter your access key ID and secret access key, which you can obtain from the AWS Management Console.
 1. Choose your default region: You will need to choose a default region for the AWS CLI. This is the region that the CLI will use by default for all AWS services.
 1. Choose your default output format: You will need to choose a default output format for the AWS CLI. This is the format that the CLI will use to display output from AWS services. You can choose between JSON and YAML or leave it empty, to let AWS decide.
+
+### Testing the CLI
 
 Test the AWS CLI: Once the AWS CLI is configured, you can test it by running a command such as _aws s3 ls_. This will list the contents of your default S3 bucket (assuming you have one).
 
@@ -86,46 +228,8 @@ $ aws s3 ls
 2023-04-01 19:21:39 python-session-1-dogan
 ```
 
-Great, we have the development IDE and the AWS CLI installed. Now let's install the Boto3 library, so we can also talk to AWS resources from Python code.
+Great, we have the development IDE and the AWS CLI installed.
 
-## AWS SDK for Python (Boto3)
+---
 
-Boto3 is the AWS Software Development Kit (SDK) for Python, which allows developers to write Python scripts to interact with AWS services programmatically. Here are some of the main use cases for Boto3:
-
-Automating AWS infrastructure: Boto3 can be used to automate the creation, modification, and deletion of AWS resources, such as EC2 instances, S3 buckets, and RDS databases. This can save time and reduce errors that can occur when creating and managing resources manually.
-
-Data processing and analysis: Boto3 can be used to retrieve data from AWS services, such as S3, DynamoDB, and Kinesis, and process it using Python libraries and tools, such as NumPy and Pandas. This can be useful for performing data analysis, machine learning, and other tasks that require processing large amounts of data.
-
-DevOps automation: Boto3 can be used to automate tasks related to DevOps, such as deploying code to AWS services using tools like CodeDeploy and CodePipeline. This can streamline the deployment process and reduce the time and effort required to deploy code to AWS.
-
-Cloud management and monitoring: Boto3 can be used to manage and monitor AWS services, such as CloudWatch, CloudFormation, and AWS Config. This can help ensure that AWS resources are running smoothly and within expected parameters and can help identify issues before they become critical.
-
-### Install Boto3 on macOS
-
-On macOS, if you followed the Python installation steps from the link provided above, you will have already installed the _pip3_ package manager, so we just need to run the following command:
-
-```sh
-pip3 install boto3
-```
-
-It will install the Boto3 library.
-
-### Install Boto3 on Ubuntu
-
-To install Boto3 on Linux, we need to install the _pip3_ explicitly, unless you have installed it already before. In the VSCode terminal window run:
-
-```sh
-sudo apt-get install python3-pip
-pip3 install boto3
-```
-
-Above code will install the _pip3_ package manager and then the Boto3 library.
-
-### Install Boto3 on Windows
-
-In case of Windows, the process is similar to macOS and the _pip3_ package manager should come together with python installation. Just run:
-
-```sh
-pip3 install boto3
-```
-
+Up to now, we have the Python and Visual Studio Code installed together with AWS CLI. In the next part of this article - [Using Visual Studio Code for CLI and Python tasks on AWS - part 3](../03.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%203/README.md) - we will install the Boto3 library.

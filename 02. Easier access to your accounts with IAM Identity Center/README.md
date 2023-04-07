@@ -1,8 +1,8 @@
 # Easier access to multiple accounts with IAM Identity Center
 
-![Generated with Midjourney](images/reception.png)
-
 In this article, I will walk you through setting up the IAM Identity Center, which helps a lot, when you have multiple accounts in your AWS Organisation or you want to be able to log in to AWS using your existing credentials.
+
+![Generated with Midjourney](images/reception.png)
 
 IAM Identity Center is a central location where an organization manages its digital identities and access control policies. It provides a single point of control for identity and access management across different systems and applications. AWS Identity and Access Management (IAM) is a web service that provides secure access to AWS services and resources for your users.
 

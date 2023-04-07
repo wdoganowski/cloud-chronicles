@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="easier-access-to-multiple-accounts-with-iam-identity-center">Easier access to multiple accounts with IAM Identity Center</h1>
+<p><img src="images/reception.png" alt="Generated with Midjourney"></p>
+<p>In this article, I will walk you through setting up the IAM Identity Center, which helps a lot, when you have multiple accounts in your AWS Organisation or you want to be able to log in to AWS using your existing credentials.</p>
+<p>IAM Identity Center is a central location where an organization manages its digital identities and access control policies. It provides a single point of control for identity and access management across different systems and applications. AWS Identity and Access Management (IAM) is a web service that provides secure access to AWS services and resources for your users.</p>
+<p>SSO (Single Sign-On) is a user authentication service that allows users to use one set of login credentials (username and password) to access multiple applications.</p>
+<p>By using IAM Identity Center as an SSO, you can simplify user management and increase security. IAM Identity Center allows you to control access to AWS resources, such as Amazon S3 and Amazon EC2 instances, and third-party applications, such as Salesforce and Slack.</p>
+<p>In this article, I will focus on setting up the IAM Identity Center without using any external identity provider. This is useful in case you want to access multiple accounts using single login but you do not manage the AWS access through your external SSO. In case you want to set up the IAM Identity Center to use your corporate SSO as an identity provider, please follow those AWS instructions: https://docs.aws.amazon.com/singlesignon/latest/userguide/getting-started.html.</p>
+<h2 id="enable-iam-identity-center">Enable IAM Identity Center</h2>
+<p>If you have not done it yet, you need to enable the IAM Identity Center. To perform those steps please ensure you are logged in to the AWS Management Console using the root user.</p>
+<blockquote>
+<p>In AWS, the root user is the initial user account created when an AWS account is set up. This account has full access to all AWS services and resources in the account, and it has complete control over all the users and resources in the account.</p>
+</blockquote>
+<ol>
+<li>Sign in to AWS Management Console as the account owner by choosing Root user and entering your AWS account email address.</li>
+<li>Navigate to the IAM Identity Center by clicking on the <em>Services</em> dropdown in the top left corner, selecting <em>IAM Identity Center (successor to AWS Single Sign-On)</em> under <em>Security, Identity &amp; Compliance</em>. Alternatively, you can type <em>IAM Identity Center (successor to AWS Single Sign-On)</em> in the services search prompt.</li>
+<li>Under <em>Enable IAM Identity Center</em>, choose Enable.</li>
+<li>To use IAM Identity Center, it is necessary to have AWS Organizations. If an organization has not been set up, there is an option to either have AWS create one or to set it up manually. To proceed with the process, select <em>Create AWS organization</em>.</li>
+</ol>
+<p>Upon setting up AWS Organizations, email verification is automatically sent to the email address associated with the management account. It's important to note that there may be a delay in receiving the verification email. It is recommended to verify the email address within 24 hours of receiving the email.</p>
+<p><img src="images/iam_identity_center.png" alt="IAM Identity Center"></p>
+<h2 id="aws-organizations">AWS Organizations</h2>
+<p>AWS Organizations is a service provided by Amazon Web Services (AWS) that enables centralized management of multiple AWS accounts. It allows an organization to consolidate billing and manage access control policies across multiple AWS accounts.</p>
+<p>With AWS Organizations, an administrator can create and manage groups of AWS accounts, known as <em>organizational units</em> (OUs). Each OU can have its own policies and service control policies (SCPs), which are used to restrict access to AWS services and APIs.</p>
+<p>AWS Organizations simplifies billing by allowing an organization to consolidate all the AWS accounts under a single payment method. This means that all AWS charges for an organization's accounts are billed to a single account, rather than multiple accounts.</p>
+<p>AWS Organizations also make it easier to manage access control and compliance by enabling administrators to apply policies across multiple AWS accounts. Administrators can apply policies at the OU level to restrict access to specific services or APIs, or to enforce compliance requirements.</p>
+<h2 id="choosing-the-identity-source">Choosing the identity source</h2>
+<p>In the next step, you should choose the identity provider (IdP) for your organization. Upon enabling IAM Identity Center for the first time, it automatically sets up an Identity Center directory as the default identity source. This directory is where users and groups are created and access levels are assigned to AWS accounts and applications.</p>
+<p>If you are currently managing users and groups in Active Directory or an external identity provider, it's recommended that you connect this identity source when enabling IAM Identity Center and selecting your identity source. This should be done before creating any users and groups in the default Identity Center directory or making any assignments.</p>
+<p>It's important to note that if you're already managing users and groups in one identity source within IAM Identity Center and decide to change to a different identity source, all user and group assignments that were previously configured in IAM Identity Center may be removed. This would result in all users, including the administrative user in IAM Identity Center, losing single sign-on access to their AWS accounts and applications.</p>
+<p>To avoid this issue, it's crucial to carefully consider the implications of changing your identity source and to review the considerations for doing so. For more information, please refer to the relevant documentation mentioned above. I'm not covering those cases in this article. I will assume you are using the Identity Center directory as the identity provider.</p>
+<h2 id="creating-administrative-permissions">Creating administrative permissions</h2>
+<p>In IAM Identity Center, permission sets define a collection of permissions that determine what actions a user can perform in AWS accounts and applications. Permission sets simplify the process of granting access to AWS resources by allowing administrators to assign a set of predefined permissions to a user or group of users.</p>
+<p>There are two types of permission sets in IAM Identity Center:</p>
+<ol>
+<li>AWS Managed Permission Sets: These are predefined sets of permissions created and maintained by AWS. These sets are designed to grant access to common AWS services and resources.</li>
+<li>Custom Permission Sets: These are sets of permissions created by an administrator to meet the specific needs of their organization. Custom permission sets can be created by selecting specific permissions from a list of available permissions, or by copying an existing permission set and modifying it as needed.</li>
+</ol>
+<p>Both AWS Managed and Custom Permission Sets can be assigned to users or groups of users, allowing them to access the AWS accounts and applications associated with the assigned permissions. To have administrative access to our accounts, we need to create the AdministratorAccess predefined permission set following the steps:</p>
+<ol>
+<li>In the IAM Identity Center console click on <em>Permission sets</em> in the left-hand menu.</li>
+<li>Click on the <em>Create new permission set</em> button in the upper right-hand corner of the page.</li>
+<li>Select <em>Predefined permission set</em> as the type of permission set.</li>
+<li>Select <em>AdministratorAccess</em> as the predefined permission set to create.</li>
+<li>Enter a name and description for the permission set, if desired.</li>
+<li>Review the details of the permission set, and click the <em>Create</em> button.</li>
+</ol>
+<p><img src="images/permision_sets.png" alt="Creating permission sets"></p>
+<p>The AdministratorAccess permission set is now created and can be assigned to users or groups of users, providing them with full administrative access to the AWS accounts and applications associated with the permission set.</p>
+<h2 id="creating-users-in-the-iam-identity-center">Creating users in the IAM Identity Center</h2>
+<p>We will not complete the following steps to create the administrative user in IAM Identity Center.</p>
+<ol>
+<li>In the IAM Identity Center console select <em>Users</em>.</li>
+<li>Chose <em>Add user</em> and provide requires information.</li>
+<li>In the <em>User details</em> section, enter the user's first name, last name, and email address.</li>
+<li>In the <em>Assign user to groups</em> section, select the groups to which you want to add the user. Select the <em>AdministratorAccess</em> group created in the previous step.</li>
+<li>Review the user details and group and access assignments, and click the <em>Create user</em> button.</li>
+</ol>
+<p>The new user will receive an email invitation to activate their account and set their password. Once they have activated their account, you can sign in to the AWS Management Console and access the accounts and applications to which they have been granted access. But first, let's add the accounts to this user.</p>
+<h2 id="adding-accounts-to-the-administrative-user">Adding accounts to the administrative user</h2>
+<p>To be able to log in to desired accounts, which are part of your organization, you need to assign them to the user. Let's assume we will be using the administrative user created in the previous step.</p>
+<p>Here are the steps to set up AWS account access for an administrative user in IAM Identity Center:</p>
+<ol>
+<li>In the IAM Identity Center console click on <em>AWS Accounts</em> in the left-hand menu.</li>
+<li>You should be presented with the list of the accounts as presented in the following picture.
+<img src="images/accounts.png" alt="List of accounts"></li>
+<li>Select the accounts you want to access.</li>
+<li>Press <em>Assign users and groups</em> and select the <em>Users</em> tab.</li>
+<li>Select the administrative user and press <em>Next</em>.</li>
+<li>Select the AdministratorAccess permission set and press <em>Next</em>.</li>
+<li>Review and press <em>Submit</em>.</li>
+</ol>
+<p>The administrative user now has access to the added AWS accounts through IAM Identity Center. To access the account using the just established Identity Center directory you need to copy the  AWS access portal URL from the Dashboard page of the IAM Identity Center. It will look similar to this: https://my-sso-portal.awsapps.com/start. When you open the URL in your browser, you will be asked to log in and later you will be presented with an account switcher as shown in the following image:</p>
+<p><img src="images/login.png" alt="Login using IAM Identity Center"></p>
+<hr>
+<p>Thanks to this method, you can use one credential to administrate multiple accounts in your AWS Organization. Having multiple accounts in AWS can be useful for several reasons:</p>
+<p>Security: By separating workloads into different accounts, you can limit the impact of a security breach. For example, if one account is compromised, the attacker will have limited access to other accounts.</p>
+<p>Cost Management: Multiple accounts can help you manage costs by allowing you to track spending on a per-account basis. This can be especially useful for organizations with multiple departments or teams.</p>
+<p>Compliance: Some compliance requirements may require that you keep certain data or workloads in separate accounts to maintain compliance.</p>
+<p>Scalability: Multiple accounts can provide better scalability by allowing you to isolate workloads and scale them independently. This can help ensure that one workload does not impact the performance of another.</p>
+<p>Simplified IAM Management: By using multiple accounts, you can simplify IAM management by creating smaller, more focused policies and roles. This can help reduce complexity and make it easier to manage permissions for different teams and workloads.</p>
+
+</body>
+</html>

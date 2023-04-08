@@ -25,7 +25,7 @@ Integrating with other tools and services: The AWS CLI can be integrated with ot
 If you have _sudo_ permissions, you can install the AWS CLI for all users on the computer:
 
 ```sh
-curl _https://awscli.amazonaws.com/AWSCLIV2.pkg_ -o _AWSCLIV2.pkg_
+curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
 sudo installer -pkg AWSCLIV2.pkg -target /
 ```
 
@@ -45,7 +45,7 @@ Download the MSI installer from the official website: https://aws.amazon.com/cli
 
 ## Configure AWS access
 
-Before we can use AWS CLI we need to set up the necessary configuration settings to communicate with the AWS services. There are two methods of achieving this. First is to use the _access key ID_ and _secret access key_ however this is not recommended anymore. Instead, we can enable authentication through a user in IAM Identity Center.
+Before we can use AWS CLI we need to set up the necessary configuration settings to communicate with the AWS services. There are two methods of achieving this. First is to use the _access key ID_ and _secret access key_, however this is not recommended anymore. Instead, we can enable authentication through a user in IAM Identity Center.
 
 ### Configuring AWS access using IAM Identity Center (recommended)
 
@@ -56,21 +56,20 @@ To configure AWS CLI to authenticate through a user in IAM Identity Center, you 
 Once you established access through IAM Identity Center, you can follow these steps:
 
 1. Log in to the AWS Management Console using your AWS account credentials. If you have multiple accounts, ensure you are logging into your management account using the root user.
-1. Navigate to the IAM Identity Center by clicking on the _Services_ dropdown in the top left corner, selecting _IAM Identity Center (successor to AWS Single Sign-On)
-_ under _Security, Identity & Compliance_. Alternatively, you can type _IAM Identity Center (successor to AWS Single Sign-On)_ in the services search prompt.
+1. Navigate to the IAM Identity Center by clicking on the _Services_ dropdown in the top left corner, selecting _IAM Identity Center (successor to AWS Single Sign-On)_ under _Security, Identity & Compliance_. Alternatively, you can type _IAM Identity Center_ in the services search prompt.
 Create a new permission set that grants PowerUserAccess permissions:
     1. Click on the _Create new permission set_ button in the upper right-hand corner of the page.
-    1. Select _Predefined permission set_ as the type of permission set.
-    1. Select _PowerUserAccess_ as the predefined permission set to create.
-    1. Enter a name and description for the permission set, if desired.
-    1. Review the details of the permission set, and click the _Create_ button.
+    2. Select _Predefined permission set_ as the type of permission set.
+    3. Select _PowerUserAccess_ as the predefined permission set to create.
+    4. Enter a name and description for the permission set, if desired.
+    5. Review the details of the permission set, and click the _Create_ button.
 1. Assign the newly created user to the account:
     1. Click on _AWS accounts_ in the left panel. You should be presented with the list of the accounts. 
-    1. Select the accounts you want to access.
-    1. Press _Assign users and groups_ and select the _Users_ tab.
-    1. Select the desired user and press _Next_.
-    1. Select the PowerUserAccess permission set and press _Next_.
-    1. Review and press _Submit_.
+    2. Select the accounts you want to access.
+    3. Press _Assign users and groups_ and select the _Users_ tab.
+    4. Select the desired user and press _Next_.
+    5. Select the PowerUserAccess permission set and press _Next_.
+    6. Review and press _Submit_.
 
 > Unlike the administrative permission set, which uses AdministratorAccess permissions, the PowerUserAccess permission set doesn't allow management of users and groups.
 
@@ -186,7 +185,7 @@ aws sso logout
 
 You have configured the AWS CLI to use the IAM Identity Center as the SSO.
 
-### Configuring AWS access using the access key
+### Configuring AWS access using the access key (not recommended option)
 
 > It's important to note that the _access key ID_ and _secret access key_ are sensitive information that should be kept secure. For that reason, we should avoid using them as if someone will get the access to this key pair, would have the same access to your account as you.
 
@@ -211,11 +210,11 @@ Configure the AWS CLI: Run the following command in the terminal or command prom
 $ aws configure
 AWS Access Key ID [None]: ********************
 AWS Secret Access Key [None]: ********************
-Default region name []: us-east-1
+Default region name [None]: us-east-1
 Default output format [None]: YAML
 ```
 
-1. Enter your AWS _access key ID_ and _secret access key_: you will need to enter your access key ID and secret access key, which you can obtain from the AWS Management Console.
+1. Enter your AWS _access key ID_ and _secret access key_: you will need to enter your access key ID and secret access key, which you have obtained from the AWS Management Console.
 1. Choose your default region: You will need to choose a default region for the AWS CLI. This is the region that the CLI will use by default for all AWS services.
 1. Choose your default output format: You will need to choose a default output format for the AWS CLI. This is the format that the CLI will use to display output from AWS services. You can choose between JSON and YAML or leave it empty, to let AWS decide.
 

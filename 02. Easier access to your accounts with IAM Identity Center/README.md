@@ -71,7 +71,7 @@ The AdministratorAccess permission set is now created and can be assigned to use
 
 ## Creating users in the IAM Identity Center
 
-We will not complete the following steps to create the administrative user in IAM Identity Center.
+We will now complete the following steps to create the administrative user in IAM Identity Center.
 
 1. In the IAM Identity Center console select _Users_.
 1. Chose _Add user_ and provide requires information.
@@ -103,8 +103,6 @@ The administrative user now has access to the added AWS accounts through IAM Ide
 ---
 
 Thanks to this method, you can use one credential to administrate multiple accounts in your AWS Organization. Having multiple accounts in AWS can be useful for several reasons:
-
-Security: By separating workloads into different accounts, you can limit the impact of a security breach. For example, if one account is compromised, the attacker will have limited access to other accounts.
 
 Cost Management: Multiple accounts can help you manage costs by allowing you to track spending on a per-account basis. This can be especially useful for organizations with multiple departments or teams.
 

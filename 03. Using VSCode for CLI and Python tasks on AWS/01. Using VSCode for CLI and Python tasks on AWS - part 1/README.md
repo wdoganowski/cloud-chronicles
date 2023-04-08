@@ -6,20 +6,22 @@ As part of my upgrade path, I have taken the [Cloud Mastery Bootcamp](https://di
 
 The course is great and includes the AWS solution architecture topics, DevOps, Infrastructure as a Code, as well as elements of Linux and Python. In the Python class, we are using the Cloud9 IDE as it is easier to have everyone in a pre-configured environment. Cloud9 is a great AWS IDE, which runs on an EC2 instance in the AWS cloud.
 
-I like it, but I like the Visual Studio Code (a.k.a. VSCode) more. Especially since it is free and runs locally, not on EC2 through the browser window. I decided to ask ChatGPT to help me to write this article, which explains step by step how to get a local environment equivalent to the AWS Cloud9 IDE allowing access to AWS resources using Python and CLI. It should allow to:
+I like it, but I like the Visual Studio Code (a.k.a. VSCode) more. Especially since it is free and runs locally, not on EC2 through the browser window. I decided to ask ChatGPT to help me to write this article, which explains step by step how to get a local environment equivalent to the AWS Cloud9 IDE allowing access to AWS resources using Python and CLI.
+
+The toolchain, which I will describe in this series of articles will consist of the following:
 
 1. Visual Studio Code IDE - the core of the development environment providing the code editing and the terminal window
-1. Python3 - Python interpreter
-1. AWS CLI - allowing access to AWS resources from the command prompt
-1. Boto3 - The library allowing access to AWS resources from Python
-1. AWS extension - allowing direct access to AWS resources from Visual Studio Code
-1. And of course the Chat GPT extension for Visual Studio Code
+2. Python3 - Python interpreter
+3. AWS CLI - allowing access to AWS resources from the command prompt
+4. Boto3 - The library allowing access to AWS resources from Python
+5. AWS extension - allowing direct access to AWS resources from Visual Studio Code
+6. And of course the Chat GPT extension for Visual Studio Code
 
 If you are not sure about the above tools, I will provide some explanations and use cases together with the installation steps below.
 
 As I'm working on my MacBook, I needed ChatGPT to help me with the information what are the equivalent steps for Ubuntu Linux and Windows. I hope they are correct, although I have verified them online, as much as I could, I might be wrong in some steps. Let me know.
 
-Here are the instructions to set up Python3 and Visual Studio Code on MacBook, Ubuntu Linux, and Windows PC, and configure it to allow access to AWS resources from the CLI in the Visual Studio Code terminal and Python scripts.
+In the first part, I'm providing the instructions to set up Python3 and Visual Studio Code on MacBook, Ubuntu Linux, and Windows PC. The next parts will cover how to configure it to allow access to AWS resources from the CLI in the Visual Studio Code terminal and Python scripts.
 
 ## Python3
 
@@ -114,4 +116,4 @@ You can exit by typing _quit()_.
 
 ---
 
-By now we have installed the Python interpreter and the Visual Studio Code IDE. Let's continue in the second part of this article [Using Visual Studio Code for CLI and Python tasks on AWS - part 2](../02.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%202/README.md), where we will cover AWS CLI installation and configuration.
+By now we have installed the Python interpreter and the Visual Studio Code IDE. Let's continue in the second part of this article [Using Visual Studio Code for CLI and Python tasks on AWS - part 2 - CLI](../02.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%202/README.md), where we will cover AWS CLI installation and configuration.

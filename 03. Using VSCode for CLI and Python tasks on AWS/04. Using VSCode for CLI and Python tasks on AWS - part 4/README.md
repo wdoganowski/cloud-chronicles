@@ -28,7 +28,7 @@ To install the Python Extension Pack in Visual Studio Code, you can follow these
 1. In Visual Studio Code click on the _Extensions_ icon on the left-hand side of the window, or press Ctrl+Shift+X (Windows/Linux) or Cmd+Shift+X (macOS) to open the Extensions view.
 1. In the search bar, type _Python Extension Pack_ and press Enter.
 1. The extension pack should appear in the search results. Click on the _Install_ button to install it.
-1. After installation, you may be prompted to reload VS Code for the changes to take effect. If so, click on the _Reload_ button.
+1. After installation, you may be prompted to reload VSCode for the changes to take effect. If so, click on the _Reload_ button.
 
 ![Python extension pack](images/python_extension_pack.png)
 
@@ -52,7 +52,7 @@ To install the autopep8 in Visual Studio Code, you can follow these steps:
 1. In the search bar, type _autopep8_ and press Enter.
 1. The extension pack should appear in the search results. Click on the _Install_ button to install it.
 
-Using the _autopep8_ extension can help ensure that your Python code is consistent, easy to read, and conforms to best practices. It can also save you time by automating the process of formatting your code. To format the document using autopep8, you can do this by using the context menu (right click on a open python file in the editor) and select _Format Document With..._.
+Using the _autopep8_ extension can help ensure that your Python code is consistent, easy to read, and conforms to best practices. It can also save you time by automating the process of formatting your code. To format the document using autopep8, you can do this by using the context menu (right-click on an open Python file in the editor) and selecting _Format Document_ With..._.
 
 ## Installing Python Snippets Pack
 
@@ -98,12 +98,12 @@ To install the AWS Toolkit in Visual Studio Code, you can follow these steps:
 1. In Visual Studio Code click on the _Extensions_ icon on the left-hand side of the window, or press Ctrl+Shift+X (Windows/Linux) or Cmd+Shift+X (macOS) to open the Extensions view.
 1. In the search bar, type _aws toolkit_ and press Enter.
 1. The extension pack should appear in the search results. Click on the _Install_ button to install it.
-1. Select _AWS_ icon from the left menu.
-1. In the AWS Explorer choose to _Select a_ connection..._ and then follow the instructions.
+1. Select the _AWS_ icon from the left menu.
+1. In the AWS Explorer choose to _Select a connection..._ and then follow the instructions.
 
 ![AWS Connections](images/aws_config.png)
 
-In case you followed the instruction from [Using Visual Studio Code for CLI and Python tasks on AWS - part 2 - AWS CLI](../02.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%202/README.md), you can use the IAM Identity Center user you created before. Otherwise, if you decided to use the key pair, you can select the IAM credentials. 
+In case you followed the instruction from [Using Visual Studio Code for CLI and Python tasks on AWS - part 2 - AWS CLI](../02.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%202/README.md), you can use the IAM Identity Center user you created before. Otherwise, if you have decided to use the key pair, you can select the IAM credentials. 
 
 There is also one more option to use the AWS Builder ID, which I do not cover here.
 
@@ -115,24 +115,25 @@ The _Genie AI_ extension for Visual Studio Code is a tool that provides AI-power
 
 The Genie AI extension uses a deep learning model to understand the semantics of your code, and it can provide code completions for a wide range of programming languages, including Python, JavaScript, TypeScript, and more. It can also suggest code snippets and templates based on your current code, making it easier to write code that follows best practices and design patterns.
 
-To use the Genie AI extension, you need to have an API key, which can be obtained by signing up for an Open AI account. The key can be generated here https://platform.openai.com/account/api-keys. When you will try to use the extension the first time, it will prompt for the API key and once it has been provided, you can install the extension in Visual Studio Code and configure it to use your API key. The extension will then start providing code completions and suggestions as you write code in your preferred programming language.
+To use the Genie AI extension, you need to have an API key, which can be obtained by signing up for an Open AI account. The key can be generated here https://platform.openai.com/account/api-keys. When you try to use the extension the first time, it will prompt for the API key and once it has been provided, you can install the extension in Visual Studio Code and configure it to use your API key. The extension will then start providing code completions and suggestions as you write code in your preferred programming language.
 
 ![Genie AI in action](images/genie.png)
 
 The Genie AI extension has several use cases:
 
 1. Code completion: Genie AI uses machine learning algorithms to analyze your code and provide relevant suggestions for code completion. This can help you write code faster and with fewer errors.
-1. Code generation: Genie AI can suggest code snippets and templates based on your current code, making it easier to write code that follows best practices and design patterns.
-1. Debugging assistance: Genie AI can assist with debugging code, by identifying errors and suggesting fixes.
-1. Documentation: Genie AI can suggest documentation for code elements, such as functions or classes, making it easier to understand how to use them.
-1. Refactoring: Genie AI can suggest ways to improve your code, such as by identifying duplicated code or suggesting better variable names.
-1. Learning: Genie AI can help developers learn new programming concepts and techniques by providing relevant code examples and explanations.
-1. Overall, the Genie AI extension can help you save time and improve the quality of your code by providing intelligent code suggestions and assistance within the VSCode editor.
+2. Code generation: Genie AI can suggest code snippets and templates based on your current code, making it easier to write code that follows best practices and design patterns.
+3. Debugging assistance: Genie AI can assist with debugging code, by identifying errors and suggesting fixes.
+4. Documentation: Genie AI can suggest documentation for code elements, such as functions or classes, making it easier to understand how to use them.
+5. Refactoring: Genie AI can suggest ways to improve your code, such as by identifying duplicated code or suggesting better variable names.
+6. Learning: Genie AI can help developers learn new programming concepts and techniques by providing relevant code examples and explanations.
+
+Overall, the Genie AI extension can help you save time and improve the quality of your code by providing intelligent code suggestions and assistance within the VSCode editor.
 
 ---
 
 Now you can work with Visual Studio Code to learn AWS and Python. I hope this environment works for you and will be very useful. You can try developing and deploying Python applications to AWS e.g. Lambda functions. Serverless architectures are becoming increasingly popular, and VSCode has excellent support for Lambda functions and other serverless services on AWS.
 
-I suggest you explore further, e.g. by adding AWS Serverless Application Model CLI. It is an open-source framework that allows developers to easily build and deploy serverless applications on AWS, using AWS Lambda, Amazon API Gateway, Amazon DynamoDB, and other services. SAM provides a simplified way of defining the resources needed for your application, including APIs, database tables, and event sources, as well as the code for your Lambda functions. With SAM, you can test your serverless applications locally before deploying them to AWS, and you can use popular tools like Visual Studio Code for development and debugging.
+I suggest you explore further, e.g. by adding AWS Serverless Application Model (SAM) CLI. It is an open-source framework that allows developers to easily build and deploy serverless applications on AWS, using AWS Lambda, Amazon API Gateway, Amazon DynamoDB, and other services. SAM provides a simplified way of defining the resources needed for your application, including APIs, database tables, and event sources, as well as the code for your Lambda functions. With SAM, you can test your serverless applications locally before deploying them to AWS, and you can use popular tools like Visual Studio Code for development and debugging.
 
 Keep exploring.

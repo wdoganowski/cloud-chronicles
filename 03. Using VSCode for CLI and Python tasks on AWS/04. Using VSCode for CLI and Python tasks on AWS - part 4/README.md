@@ -30,7 +30,7 @@ To install the Python Extension Pack in Visual Studio Code, you can follow these
 1. The extension pack should appear in the search results. Click on the _Install_ button to install it.
 1. After installation, you may be prompted to reload VS Code for the changes to take effect. If so, click on the _Reload_ button.
 
-![Python extension pack](images/python_extension.png)
+![Python extension pack](images/python_extension_pack.png)
 
 That's it! The Python Extension Pack is now installed and ready to use in Visual Studio Code. You can start using the Python-specific features and functionality provided by the extensions included in the pack.
 
@@ -103,7 +103,9 @@ To install the AWS Toolkit in Visual Studio Code, you can follow these steps:
 
 ![AWS Connections](images/aws_config.png)
 
-You can use the IAM Identity Center user you created before.
+In case you followed the instruction from [Using Visual Studio Code for CLI and Python tasks on AWS - part 2 - AWS CLI](../02.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%202/README.md), you can use the IAM Identity Center user you created before. Otherwise, if you decided to use the key pair, you can select the IAM credentials. 
+
+There is also one more option to use the AWS Builder ID, which I do not cover here.
 
 Once connected, you can explore the AWS resources in the AWS Explorer panel.
 

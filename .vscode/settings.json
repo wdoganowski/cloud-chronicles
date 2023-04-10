@@ -4,5 +4,9 @@
         "**/README.md",
         "**/*.txt",
         "**/*.md"
-    ]
+    ],
+    "python.analysis.typeCheckingMode": "basic",
+    "python.pythonPath": ".venv/bin/python3",
+    "python.terminal.activateEnvironment": true,
+    "python.terminal.activateEnvInCurrentTerminal": true
 }

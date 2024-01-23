@@ -4,7 +4,7 @@ In the ever-evolving landscape of cloud security, safeguarding sensitive data st
 
 This article delves into an advanced yet crucial aspect of AWS security—configuring your S3 bucket to grant access solely to users who have authenticated using Multi-Factor Authentication (MFA) or have logged in through Single Sign-On (SSO) with MFA authentication. We'll navigate through the intricacies of this setup, equipping you with the knowledge and expertise to fortify your AWS environment against unauthorized access.
 
-If you are interested in finding out how to setup your AWS account to allow accessing it using the AWS IAM Identity Center SSO instead logging to the individual accounts in your AWS Organisation (which requires you to remember multiple users and passwords), please read my another article [Easier access to multiple accounts with IAM Identity Center](../02.%20Easier%20access%20to%20your%20accounts%20with%20IAM%20Identity%20Center/README.md).
+If you are interested in finding out how to set your AWS account to allow accessing it using the AWS IAM Identity Center SSO instead of logging to the individual accounts in your AWS Organisation (which requires you to remember multiple users and passwords), please read my another article [Easier access to multiple accounts with IAM Identity Center](../02.%20Easier%20access%20to%20your%20accounts%20with%20IAM%20Identity%20Center/README.md).
 
 Coming back to enforcing MFA, in a world where security breaches and data leaks are ever-present threats, our journey to secure AWS S3 buckets begins with a deeper understanding of MFA, SSO with MFA, and the pivotal role they play in enhancing your cloud security posture. Let's embark on this exploration together and empower ourselves with the knowledge and tools to safeguard our digital assets effectively.
 
@@ -67,7 +67,7 @@ Now that we've crafted a robust IAM policy enforcing Multi-Factor Authentication
 
 ### Step 1: Navigate to Your S3 Bucket
 
-Log in to your AWS Management Console with appropriate credentials.
+Log in to your AWS Management Console with the appropriate credentials.
 
 From the AWS dashboard, navigate to the S3 service.
 
@@ -83,7 +83,7 @@ Under the "Permissions" tab, you'll see several sections related to access contr
 
 ### Step 4: Paste Your IAM Policy
 
-In the policy editor, paste the IAM policy listed below. This policy explicitly specify that only authenticated users with MFA or SSO-MFA authentication are granted access. Be careful when pasting the policy to ensure there are no formatting errors. Remember to replace the `your-bucket-name`.
+In the policy editor, paste the IAM policy listed below. This policy explicitly specifies that only authenticated users with MFA or SSO-MFA authentication are granted access. Be careful when pasting the policy to ensure there are no formatting errors. Remember to replace the `your-bucket-name`.
 
 ```json
 {
@@ -114,7 +114,7 @@ In the policy editor, paste the IAM policy listed below. This policy explicitly 
 }
 ```
 
-You can also upload the policy using the CLI, assuming you are logged in with enough permisions:
+You can also upload the policy using the CLI, assuming you are logged in with enough permissions:
 
 ```sh
 $ aws s3api create-bucket --bucket your-bucket-name --region us-east-1
@@ -124,7 +124,7 @@ $ aws s3api create-bucket --bucket your-bucket-name --region us-east-1
 $ aws s3api put-bucket-policy --bucket your-bucket-name --policy file://bucket_require_mfa_policy.json
 ```
 
-Remeber to save the above policy to [bucket_require_mfa_policy.json](bucket_require_mfa_policy.json) file.
+Remember to save the above policy to [bucket_require_mfa_policy.json](bucket_require_mfa_policy.json) file.
 
 Note that you can employ an MFA condition in a policy to assess the following attributes:
 
@@ -134,11 +134,11 @@ Duration — if your objective is to permit access only within a specified time 
 
 ### Step 5: Test the Configuration
 
-Before considering your setup complete, it's essential to test the configuration thoroughly. Try accessing the S3 bucket with different IAM user accounts and confirm that only those with MFA or SSO-MFA authentication can access the contents. This testing phase ensures that your security measures are functioning as intended.
+Before your setup is complete, it's essential to test the configuration thoroughly. Try accessing the S3 bucket with different IAM user accounts and confirm that only those with MFA or SSO-MFA authentication can access the contents. This testing phase ensures that your security measures are functioning as intended.
 
 #### Testing using SSO user
 
-To test the configuration using the CLI, you can first login to account having a full access to S3 using SSO. Ensure you login using MFA (this is the standard practice) and you will be able to access your test backet without any issue.
+To test the configuration using the CLI, you can first log in to the account having full access to S3 using SSO. Ensure you log in using MFA (this is the standard practice) and you will be able to access your test bucket without any issues.
 
 ```sh
 $ aws sso login --profile your-profile
@@ -158,7 +158,7 @@ There should be no error displayed.
 
 Now create a user with full S3 access but without MFA enabled. Accessing the bucket by this user should not be allowed.
 
-Following are required command.
+The following are required commands.
 
 ```sh
 $ aws iam create-user --user-name test-user
@@ -194,7 +194,7 @@ Default region name [None]: us-east-1
 Default output format [None]: json
 ```
 
-Now try to upload the `testfile.txt` usingt the `test-user` account:
+Now try to upload the `testfile.txt` using the `test-user` account:
 
 ```sh
 $ aws s3 cp testfile.txt s3://your-bucket-name --profile test-user
@@ -205,7 +205,7 @@ Note the operation failed.
 
 #### Testing using the user with MFA enabled
 
-First we need to create a virtual MFA device:
+First, we need to create a virtual MFA device:
 
 ```sh
 $ aws iam create-virtual-mfa-device --virtual-mfa-device-name test-user-mfa-device --outfile qr.png --bootstrap-method QRCodePNG
@@ -216,15 +216,15 @@ $ aws iam create-virtual-mfa-device --virtual-mfa-device-name test-user-mfa-devi
 }
 ```
 
-This command will creat the `qr.png` with the QR code and return the arn of the virtual device. You need to display the `qr.png` and scan it with e.g. `Google Authenticator`. Remeber to delete the `qr.pnp` after it has been used.
+This command will create the `qr.png` with the QR code and return the ARN of the virtual device. You need to display the `qr.png` and scan it with e.g. `Google Authenticator`. Remember to delete the `qr.pnp` after it has been used.
 
-Once you've generated a fresh virtual MFA device, you have the option to link it to a userusing `enable-mfa-device`. This command ensures synchronization with AWS by incorporating the initial two codes in sequence from the virtual MFA device.
+Once you've generated a fresh virtual MFA device, you have the option to link it to a user using `enable-mfa-device`. This command ensures synchronization with AWS by incorporating the initial two codes in sequence from the virtual MFA device.
 
 ```sh
 $ aws iam enable-mfa-device --user-name test-user --serial-number arn:aws:iam::123456789000:mfa/test-user-mfa-device --authentication-code1 448283 --authentication-code2 032162
 ```
 
-Finally, we can acquire the temporary session for the `test-user` with MFA. Of course, you need to relace the codes and toke with your own values from the authenticator app.
+Finally, we can acquire the temporary session for the `test-user` logged-in with MFA. Of course, you need to replace the codes and the token with your own values from the authenticator app.
 
 ```sh
 $ aws sts get-session-token --serial-number arn:aws:iam::123456789000:mfa/test-user-mfa-device --token-code 567843 --profile test-user
@@ -241,7 +241,7 @@ $ export AWS_SECRET_ACCESS_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 $ export AWS_SESSION_TOKEN=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
-Now, attempt to upload a file from the AWS CLI again, without specifying the profile. You can log out from SSO to ensure that you are using the temporary session. On top you can call `get-caller-idendity` to double check.
+Now, attempt to upload a file from the AWS CLI again, without specifying the profile. You can log out from SSO to ensure that you are using the temporary session. On top, you can call `get-caller-idendity` to double-check.
 
 ```sh
 $ aws sso logout

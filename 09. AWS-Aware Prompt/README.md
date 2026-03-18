@@ -4,6 +4,8 @@
 
 We've all been there. You're knee-deep in a Terraform plan, confident you're in UAT, and then you hit apply. Silence. Then the Slack message from your colleague: *"Did you just nuke the production database?"*
 
+And here's another scenario that's becoming increasingly common: you ask GitHub Copilot to run a script for you, it opens a fresh terminal, and suddenly your AWS profile is gone, your virtual environment is deactivated, and Copilot is running commands in the wrong context — or failing silently because `aws` can't find credentials. Every new terminal Copilot spawns is a blank slate, and if your environment setup lives only in your head (or in a README you have to follow manually), you'll be fighting that context loss constantly.
+
 No? Just me? Either way — this article is about making sure that never happens. We're going to build a shell prompt that constantly reminds you which AWS account and region you're working in, auto-activates your Python virtual environments, and even switches AWS profiles automatically when you `cd` into the right project. All of this without slowing your terminal down.
 
 By the end, your prompt will look like this:
@@ -29,7 +31,7 @@ Three problems, solved in one hook.
 
 ## Prerequisites
 
-- macOS with [Homebrew](https://brew.sh)
+- macOS with [Homebrew](https://brew.sh) (or Linux with your preferred package manager, but I haven't tested this setup on Linux)
 - [zsh](https://www.zsh.org/) as your shell (default on macOS since Catalina)
 - [AWS CLI v2](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) installed and configured
 - AWS SSO set up (see article in this series [02. Using VSCode for CLI and Python tasks on AWS - part 2](../02.%20Easier%20access%20to%20your%20accounts%20with%20IAM%20Identity%20Center/README.md) if you haven't done this yet)
@@ -312,6 +314,14 @@ Assume a role:
 ```
 
 The assumed role will be displayed in red. This red profile name is your "wait, double-check before you apply" moment. It's saved more than a few Friday afternoons.
+
+---
+
+## Bonus: It Plays Well With GitHub Copilot
+
+If you use GitHub Copilot in VS Code — especially the agent mode — you've probably noticed that Copilot frequently opens a *new* terminal to run its commands. And every time it does, it starts completely fresh: no AWS profile, no region, and your Python virtual environment is nowhere to be seen.
+
+This is actually where this setup earns its keep beyond just aesthetics. Because both `.zprofile` and `.zshrc` run on every new shell, Copilot's terminal inherits everything automatically: the right `AWS_PROFILE`, the correct `AWS_REGION`, and if the project has a `.venv`, it gets activated immediately. The `_project_env` function fires on shell start (not just on `cd`), so even a brand-new terminal spawned mid-session lands in the right context. Copilot can run `aws` commands and Python scripts without you needing to manually set up the environment each time it decides to open a fresh shell.
 
 ---
 

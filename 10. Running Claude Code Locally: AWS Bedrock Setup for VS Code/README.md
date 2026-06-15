@@ -1,6 +1,7 @@
 # Running Claude Code Locally: AWS Bedrock Setup for VS Code
 
 ![Claude Code in VS Code](images/claude-vscode-header.png)
+Generated with DaVinci.ai
 
 In previous articles in this series, we've covered setting up [IAM Identity Center for multi-account access](../02.%20Easier%20access%20to%20your%20accounts%20with%20IAM%20Identity%20Center/README.md) and [configuring VS Code for AWS CLI and Python tasks](../03.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS/01.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%201/README.md). Now, we'll take it a step further by integrating Claude, Anthropic's powerful AI assistant, directly into VS Code using AWS Bedrock.
 

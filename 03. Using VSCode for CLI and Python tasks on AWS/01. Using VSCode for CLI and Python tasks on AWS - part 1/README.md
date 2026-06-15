@@ -116,4 +116,4 @@ You can exit by typing _quit()_.
 
 ---
 
-By now we have installed the Python interpreter and the Visual Studio Code IDE. Let's continue in the second part of this article [Using Visual Studio Code for CLI and Python tasks on AWS - part 2 - CLI](../02.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%202/README.md), where we will cover AWS CLI installation and configuration.
+By now we have installed the Python interpreter and the Visual Studio Code IDE. Let's continue in the second part of this article [Using Visual Studio Code for CLI and Python tasks on AWS - part 2 - CLI](../02.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%202/), where we will cover AWS CLI installation and configuration.

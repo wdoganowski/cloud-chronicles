@@ -25,37 +25,37 @@ Watch the git repository to stay current:
 
 ### Migration
 
-- **[7 Rs of Migration](./01.%207%20Rs%20of%20Migration/README.md)**
+- **[7 Rs of Migration](./01.%207%20Rs%20of%20Migration/)**
   Framework for choosing the right migration strategy: refactor, re-platform, repurchase, rehost, relocate, retain, retire.
 
-- **[Go3's Success Story of Strategic Cloud Migration](./05.%20Scaling%20to%20New%20Heights:%20Go3's%20Success%20Story%20of%20Strategic%20Cloud%20Migration/README.md)**
+- **[Go3's Success Story of Strategic Cloud Migration](./05.%20Scaling%20to%20New%20Heights:%20Go3's%20Success%20Story%20of%20Strategic%20Cloud%20Migration/)**
   How Go3 migrated from on-premises to AWS — motivation, decisions, CDN strategy, and lessons learned.
 
 ### Identity & Security
 
-- **[Easier Access to Multiple Accounts with IAM Identity Center](./02.%20Easier%20access%20to%20your%20accounts%20with%20IAM%20Identity%20Center/README.md)**
+- **[Easier Access to Multiple Accounts with IAM Identity Center](./02.%20Easier%20access%20to%20your%20accounts%20with%20IAM%20Identity%20Center/)**
   Setting up AWS SSO with IAM Identity Center for multi-account access without external identity providers.
 
-- **[Securing Your S3 Bucket: Enforcing MFA and SSO Authentication](./04.%20Securing%20Your%20AWS%20S3%20Bucket-%20Enforcing%20MFA%20or%20SSO%20Authentication/README.md)**
+- **[Securing Your S3 Bucket: Enforcing MFA and SSO Authentication](./04.%20Securing%20Your%20AWS%20S3%20Bucket-%20Enforcing%20MFA%20or%20SSO%20Authentication/)**
   S3 bucket policies that require MFA or SSO authentication before granting access.
 
 ### Developer Tooling & Productivity
 
-- **[Using VS Code for CLI and Python Tasks on AWS](./03.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS/01.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%201/README.md)**
+- **[Using VS Code for CLI and Python Tasks on AWS](./03.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS/01.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%201/)**
   Four-part series: setting up VS Code as an AWS development environment for CLI and Python workflows.
 
-- **[Scheduling EC2 Instances with Lambda and EventBridge](./06.%20Streamlining%20AWS%20Resource%20Management:%20A%20Cost-Effective%20Alternative%20to%20AWS%20Instance%20Scheduler%20Step-by-Step/README.md)**
+- **[Scheduling EC2 Instances with Lambda and EventBridge](./06.%20Streamlining%20AWS%20Resource%20Management:%20A%20Cost-Effective%20Alternative%20to%20AWS%20Instance%20Scheduler%20Step-by-Step/)**
   A lightweight, cost-effective alternative to AWS Instance Scheduler using Lambda and EventBridge.
 
-- **[AWS-Aware Shell Prompt](./09.%20AWS-Aware%20Prompt/README.md)**
+- **[AWS-Aware Shell Prompt](./09.%20AWS-Aware%20Prompt/)**
   A shell prompt that shows your active AWS account and region, auto-activates Python venvs, and switches profiles on `cd` — stops you from running commands in the wrong account.
 
-- **[Running Claude Code Locally via AWS Bedrock](./10.%20Running%20Claude%20Code%20Locally:%20AWS%20Bedrock%20Setup%20for%20VS%20Code/README.md)**
+- **[Running Claude Code Locally via AWS Bedrock](./10.%20Running%20Claude%20Code%20Locally:%20AWS%20Bedrock%20Setup%20for%20VS%20Code/)**
   Connecting Claude Code in VS Code to AWS Bedrock instead of direct API keys — enterprise auth, centralized billing, no secrets on disk.
 
 ### AI & Analytics
 
-- **[Transforming Call Center Analytics with AWS Bedrock](./08.%20Transforming%20Call%20Center%20Analytics%20with%20AWS%20Bedrock/README.md)**
+- **[Transforming Call Center Analytics with AWS Bedrock](./08.%20Transforming%20Call%20Center%20Analytics%20with%20AWS%20Bedrock/)**
   Multilingual call transcript analysis and translation for Go3's call center using Bedrock, Transcribe, Lambda, and SNS.
 
 ---

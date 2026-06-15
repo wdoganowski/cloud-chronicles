@@ -2,7 +2,7 @@
 
 ![Visual Studio Code example](images/vscode.png)
 
-In the first part of this article [Using Visual Studio Code for CLI and Python tasks on AWS - part 1](../01.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%201/README.md) I have covered the installation of Python3 and Visual Studio Code. Now we will focus on the installation of AWS CLI. Thanks to this, we will be able to connect to AWS resources from our local machine.
+In the first part of this article [Using Visual Studio Code for CLI and Python tasks on AWS - part 1](../01.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%201/) I have covered the installation of Python3 and Visual Studio Code. Now we will focus on the installation of AWS CLI. Thanks to this, we will be able to connect to AWS resources from our local machine.
 
 ## AWS CLI
 
@@ -49,7 +49,7 @@ Before we can use AWS CLI we need to set up the necessary configuration settings
 
 ### Configuring AWS access using IAM Identity Center (recommended)
 
-To configure AWS CLI to authenticate through a user in IAM Identity Center, you need to have to enable access through the IAM Identity Center. You can follow my article [Easier access to multiple accounts with IAM Identity Center](../../02.%20Easier%20access%20to%20your%20accounts%20with%20IAM%20Identity%20Center/README.md).
+To configure AWS CLI to authenticate through a user in IAM Identity Center, you need to have to enable access through the IAM Identity Center. You can follow my article [Easier access to multiple accounts with IAM Identity Center](../../02.%20Easier%20access%20to%20your%20accounts%20with%20IAM%20Identity%20Center/).
 
 #### Creating PowerUser
 
@@ -231,4 +231,4 @@ Great, we have the development IDE and the AWS CLI installed.
 
 ---
 
-Up to now, we have the Python and Visual Studio Code installed together with AWS CLI. In the next part of this article - [Using Visual Studio Code for CLI and Python tasks on AWS - part 3](../03.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%203/README.md) - we will install the Boto3 library.
+Up to now, we have the Python and Visual Studio Code installed together with AWS CLI. In the next part of this article - [Using Visual Studio Code for CLI and Python tasks on AWS - part 3](../03.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%203/) - we will install the Boto3 library.

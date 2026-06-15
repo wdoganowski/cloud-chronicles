@@ -3,7 +3,7 @@
 ![Claude Code in VS Code](images/claude-vscode-header.png)
 Generated with DaVinci.ai
 
-In previous articles in this series, we've covered setting up [IAM Identity Center for multi-account access](../02.%20Easier%20access%20to%20your%20accounts%20with%20IAM%20Identity%20Center/README.md) and [configuring VS Code for AWS CLI and Python tasks](../03.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS/01.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%201/README.md). Now, we'll take it a step further by integrating Claude, Anthropic's powerful AI assistant, directly into VS Code using AWS Bedrock.
+In previous articles in this series, we've covered setting up [IAM Identity Center for multi-account access](../02.%20Easier%20access%20to%20your%20accounts%20with%20IAM%20Identity%20Center/) and [configuring VS Code for AWS CLI and Python tasks](../03.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS/01.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%201/). Now, we'll take it a step further by integrating Claude, Anthropic's powerful AI assistant, directly into VS Code using AWS Bedrock.
 
 Claude Code is Anthropic's official IDE integration that brings Claude's capabilities directly into your development environment. Unlike traditional chatbots, Claude Code can read your codebase, make edits, run commands, and help you build software more efficiently. By connecting it to AWS Bedrock instead of using direct API keys, you get the benefits of enterprise-grade security, centralized billing, and seamless integration with your existing AWS infrastructure.
 
@@ -42,11 +42,11 @@ The authentication and request flow works as follows:
 
 Before starting this guide, you should have already completed:
 
-✅ **AWS CLI installed** - Covered in [Using VS Code for CLI tasks - Part 2](../03.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS/02.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%202/README.md)
+✅ **AWS CLI installed** - Covered in [Using VS Code for CLI tasks - Part 2](../03.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS/02.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%202/)
 
-✅ **IAM Identity Center configured** - Covered in [Easier access to multiple accounts with IAM Identity Center](../02.%20Easier%20access%20to%20your%20accounts%20with%20IAM%20Identity%20Center/README.md)
+✅ **IAM Identity Center configured** - Covered in [Easier access to multiple accounts with IAM Identity Center](../02.%20Easier%20access%20to%20your%20accounts%20with%20IAM%20Identity%20Center/)
 
-✅ **VS Code installed** - Covered in [Using VS Code for CLI tasks - Part 1](../03.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS/01.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%201/README.md)
+✅ **VS Code installed** - Covered in [Using VS Code for CLI tasks - Part 1](../03.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS/01.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%201/)
 
 Additionally, you'll need:
 
@@ -94,7 +94,7 @@ At the moment of writing this article, the highly anticipated **Claude Fable 5**
 
 ### 1.3 Configure IAM Permissions
 
-Your IAM user or role needs permissions to invoke Bedrock models. If you're using IAM Identity Center (as covered in our [previous article](../02.%20Easier%20access%20to%20your%20accounts%20with%20IAM%20Identity%20Center/README.md)), you'll need to update your permission set.
+Your IAM user or role needs permissions to invoke Bedrock models. If you're using IAM Identity Center (as covered in our [previous article](../02.%20Easier%20access%20to%20your%20accounts%20with%20IAM%20Identity%20Center/)), you'll need to update your permission set.
 
 **Option A: Create a Custom Permission Set (Recommended)**
 
@@ -155,7 +155,7 @@ Once the permission set is created:
 
 ## Step 2: Configure AWS CLI Profile
 
-If you followed our [IAM Identity Center article](../02.%20Easier%20access%20to%20your%20accounts%20with%20IAM%20Identity%20Center/README.md), you should already have AWS CLI configured with SSO. Let's create or verify a profile with Bedrock access.
+If you followed our [IAM Identity Center article](../02.%20Easier%20access%20to%20your%20accounts%20with%20IAM%20Identity%20Center/), you should already have AWS CLI configured with SSO. Let's create or verify a profile with Bedrock access.
 
 ### 2.1 Configure SSO Profile
 
@@ -872,8 +872,8 @@ You've now successfully configured Claude Code to work with AWS Bedrock in VS Co
 
 ### Related Articles
 
-- [Easier access to multiple accounts with IAM Identity Center](../02.%20Easier%20access%20to%20your%20accounts%20with%20IAM%20Identity%20Center/README.md)
-- [Using VS Code for CLI and Python tasks on AWS - Part 1](../03.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS/01.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%201/README.md)
-- [Using VS Code for CLI and Python tasks on AWS - Part 2](../03.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS/02.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%202/README.md)
+- [Easier access to multiple accounts with IAM Identity Center](../02.%20Easier%20access%20to%20your%20accounts%20with%20IAM%20Identity%20Center/)
+- [Using VS Code for CLI and Python tasks on AWS - Part 1](../03.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS/01.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%201/)
+- [Using VS Code for CLI and Python tasks on AWS - Part 2](../03.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS/02.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%202/)
 
 Happy coding with Claude!

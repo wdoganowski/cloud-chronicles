@@ -2,7 +2,7 @@
 
 ![Visual Studio Code example](images/vscode.png)
 
-In the first part of this article [Using Visual Studio Code for CLI and Python tasks on AWS - part 1](../01.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%201/README.md) I have covered the installation of Python3 and Visual Studio Code. In the second part [Using Visual Studio Code for CLI and Python tasks on AWS - part 2 - CLI](../02.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%202/README.md) I have covered the installation and configuration of AWS CLI. In the third part [Using Visual Studio Code for CLI and Python tasks on AWS - part 3 - Boto3](../03.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%203/README.md) I have covered the installation of the Boto3 library. Finally, let's add some useful extensions.
+In the first part of this article [Using Visual Studio Code for CLI and Python tasks on AWS - part 1](../01.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%201/) I have covered the installation of Python3 and Visual Studio Code. In the second part [Using Visual Studio Code for CLI and Python tasks on AWS - part 2 - CLI](../02.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%202/) I have covered the installation and configuration of AWS CLI. In the third part [Using Visual Studio Code for CLI and Python tasks on AWS - part 3 - Boto3](../03.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%203/) I have covered the installation of the Boto3 library. Finally, let's add some useful extensions.
 
 ## Visual Studio Code extensions
 
@@ -103,7 +103,7 @@ To install the AWS Toolkit in Visual Studio Code, you can follow these steps:
 
 ![AWS Connections](images/aws_config.png)
 
-In case you followed the instruction from [Using Visual Studio Code for CLI and Python tasks on AWS - part 2 - AWS CLI](../02.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%202/README.md), you can use the IAM Identity Center user you created before. Otherwise, if you have decided to use the key pair, you can select the IAM credentials. 
+In case you followed the instruction from [Using Visual Studio Code for CLI and Python tasks on AWS - part 2 - AWS CLI](../02.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%202/), you can use the IAM Identity Center user you created before. Otherwise, if you have decided to use the key pair, you can select the IAM credentials. 
 
 There is also one more option to use the AWS Builder ID, which I do not cover here.
 

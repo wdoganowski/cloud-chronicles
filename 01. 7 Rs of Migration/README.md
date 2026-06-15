@@ -7,7 +7,7 @@
 
 &nbsp; <!-- break line -->
 
-This is part of the [Cloud Chronicles](../README.md) series.
+This is part of the [Cloud Chronicles](../) series.
 
 Migrating to the cloud can be a complex process, but with the right strategy, it can also be a highly successful one. The 7 Rs of migration offer a framework for this strategy, providing a range of options for moving applications to the AWS Cloud. These strategies build upon the 5 Rs that [Gartner originally identified in 2010](https://www.gartner.com/en/documents/1485116). Before beginning the migration process, it's important to assess your application portfolio data and evaluate it against these 7 Rs: *refactor*, *re-platform*, *repurchase*, *rehost*, *relocate*, *retain*, and *retire*.
 

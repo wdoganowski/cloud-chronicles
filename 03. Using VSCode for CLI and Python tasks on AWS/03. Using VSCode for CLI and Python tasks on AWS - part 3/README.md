@@ -2,7 +2,7 @@
 
 ![Visual Studio Code example](images/vscode.png)
 
-In the first part of this article [Using Visual Studio Code for CLI and Python tasks on AWS - part 1](../01.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%201/README.md) I have covered the installation of Python3 and Visual Studio Code. In the second part [Using Visual Studio Code for CLI and Python tasks on AWS - part 2](../02.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%202/README.md) I have covered the installation and configuration of AWS CLI. Now let's install the Boto3 library, so we will be able to connect to AWS resources from Python code.
+In the first part of this article [Using Visual Studio Code for CLI and Python tasks on AWS - part 1](../01.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%201/) I have covered the installation of Python3 and Visual Studio Code. In the second part [Using Visual Studio Code for CLI and Python tasks on AWS - part 2](../02.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%202/) I have covered the installation and configuration of AWS CLI. Now let's install the Boto3 library, so we will be able to connect to AWS resources from Python code.
 
 ## AWS SDK for Python (Boto3)
 
@@ -76,4 +76,4 @@ botocore.exceptions.SSOTokenLoadError: Error loading SSO Token: Token for my-sso
 
 ---
 
-Up to now, we have the Python and Visual Studio Code installed together with two methods to access the AWS resources: AWS CLI and the Boto3 library. In the next part of this article - [Using Visual Studio Code for CLI and Python tasks on AWS - part 4](../04.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%204/README.md) - we will add some fun extensions, which maybe are not crucial, but help in the daily tasks.
+Up to now, we have the Python and Visual Studio Code installed together with two methods to access the AWS resources: AWS CLI and the Boto3 library. In the next part of this article - [Using Visual Studio Code for CLI and Python tasks on AWS - part 4](../04.%20Using%20VSCode%20for%20CLI%20and%20Python%20tasks%20on%20AWS%20-%20part%204/) - we will add some fun extensions, which maybe are not crucial, but help in the daily tasks.

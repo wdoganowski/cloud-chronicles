@@ -34,7 +34,7 @@ Three problems, solved in one hook.
 - macOS with [Homebrew](https://brew.sh) (or Linux with your preferred package manager, but I haven't tested this setup on Linux)
 - [zsh](https://www.zsh.org/) as your shell (default on macOS since Catalina)
 - [AWS CLI v2](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) installed and configured
-- AWS SSO set up (see article in this series [02. Using VSCode for CLI and Python tasks on AWS - part 2](../02.%20Easier%20access%20to%20your%20accounts%20with%20IAM%20Identity%20Center/README.md) if you haven't done this yet)
+- AWS SSO set up (see article in this series [02. Using VSCode for CLI and Python tasks on AWS - part 2](../02.%20Easier%20access%20to%20your%20accounts%20with%20IAM%20Identity%20Center/) if you haven't done this yet)
 - A coffee ☕️. This is a multi-file setup.
 
 ---

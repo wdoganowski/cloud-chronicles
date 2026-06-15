@@ -1,0 +1,28 @@
+{
+  "claude.apiProvider": "bedrock",
+  "claude.awsRegion": "eu-north-1",
+  "claude.model": "eu.anthropic.claude-sonnet-4-6",
+
+  "terminal.integrated.env.osx": {
+    "AWS_PROFILE": "bedrock-stockholm",
+    "AWS_REGION": "eu-north-1"
+  },
+
+  "terminal.integrated.env.windows": {
+    "AWS_PROFILE": "bedrock-stockholm",
+    "AWS_REGION": "eu-north-1"
+  },
+
+  "terminal.integrated.env.linux": {
+    "AWS_PROFILE": "bedrock-stockholm",
+    "AWS_REGION": "eu-north-1"
+  },
+
+  "terminal.integrated.inheritEnv": true,
+
+  "claude.defaultModel": "eu.anthropic.claude-sonnet-4-6",
+
+  "claude.contextWindow": "auto",
+
+  "claude.temperature": 1.0
+}

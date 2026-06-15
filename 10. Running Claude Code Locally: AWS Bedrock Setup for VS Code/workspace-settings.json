@@ -1,0 +1,22 @@
+{
+  "claude.apiProvider": "bedrock",
+  "claude.awsRegion": "eu-north-1",
+  "claude.model": "eu.anthropic.claude-opus-4-8",
+
+  "terminal.integrated.env.osx": {
+    "AWS_PROFILE": "bedrock-stockholm",
+    "AWS_REGION": "eu-north-1"
+  },
+
+  "terminal.integrated.env.windows": {
+    "AWS_PROFILE": "bedrock-stockholm",
+    "AWS_REGION": "eu-north-1"
+  },
+
+  "terminal.integrated.env.linux": {
+    "AWS_PROFILE": "bedrock-stockholm",
+    "AWS_REGION": "eu-north-1"
+  },
+
+  "terminal.integrated.inheritEnv": true
+}

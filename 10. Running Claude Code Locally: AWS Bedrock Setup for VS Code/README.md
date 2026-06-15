@@ -90,7 +90,7 @@ Claude models in Bedrock are **available by default** - you don't need to reques
 
 At the moment of writing this article, the highly anticipated **Claude Fable 5** model is already available, however it requires data to be shared directly with Anthropic (see below). The highest usable model through Bedrock is currently **Claude Opus 4.8**, which provides excellent performance for most tasks while keeping data within your AWS environment.
 
-**UPDATE**: As of 12 June 2026, Anthropic **Claude Fable 5*** has been suspended by US regulators due to concerns about data privacy and compliance, see ![Statement on the US government directive to suspend access to Fable 5 and Mythos 5](https://www.anthropic.com/news/fable-mythos-access) for up to date information.
+**UPDATE**: As of 12 June 2026, Anthropic **Claude Fable 5*** has been suspended by US regulators due to concerns about data privacy and compliance, see [Statement on the US government directive to suspend access to Fable 5 and Mythos 5](https://www.anthropic.com/news/fable-mythos-access) for up to date information.
 
 ### 1.3 Configure IAM Permissions
 

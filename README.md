@@ -9,7 +9,13 @@
 
 A series of practical articles on AWS architecture, migration, security, and AI tooling — written from the trenches of migrating [Go3](https://go3.tv), the biggest OTT TV service in the Baltics, to AWS.
 
-Articles are published on [Medium](https://medium.com/@dogan1971/cloud-chronicles-d160b926d48) and kept here in their most up-to-date form. Watch the repository to stay current:
+Articles are published on [Medium](https://medium.com/@dogan1971/cloud-chronicles-d160b926d48) and kept here in their most up-to-date form. 
+
+The web version of this repository is available at:
+
+> [https://wdoganowski.github.io/cloud-chronicles/](https://wdoganowski.github.io/cloud-chronicles/)
+
+Watch the git repository to stay current:
 
 > [https://github.com/wdoganowski/cloud-chronicles](https://github.com/wdoganowski/cloud-chronicles)
 

@@ -1,5 +1,6 @@
 theme: jekyll-theme-minimal
 title: Cloud Chronicles
+name: Wojciech Doganowski
 description: Practical articles on AWS architecture, migration, security, and AI tooling — written from the trenches of migrating Go3 OTT to AWS.
 url: "https://wdoganowski.github.io"
 baseurl: "/cloud-chronicles"

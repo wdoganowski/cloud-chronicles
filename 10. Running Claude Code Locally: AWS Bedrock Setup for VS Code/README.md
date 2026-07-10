@@ -848,19 +848,13 @@ Prices vary by model (as of June 2026):
 
 You've now successfully configured Claude Code to work with AWS Bedrock in VS Code! Here's what we covered:
 
-✅ Enabled Bedrock access and requested Claude model access
-
-✅ Configured IAM permissions for Bedrock
-
-✅ Set up AWS CLI profile with SSO authentication
-
-✅ Understood inference profiles vs model IDs
-
-✅ Configured VS Code with Claude Code extension
-
-✅ Verified installation with test script
-
-✅ Learned daily workflow and troubleshooting
+- ✅ Enabled Bedrock access and requested Claude model access
+- ✅ Configured IAM permissions for Bedrock
+- ✅ Set up AWS CLI profile with SSO authentication
+- ✅ Understood inference profiles vs model IDs
+- ✅ Configured VS Code with Claude Code extension
+- ✅ Verified installation with test script
+- ✅ Learned daily workflow and troubleshooting
 
 ### Key Takeaways
 
